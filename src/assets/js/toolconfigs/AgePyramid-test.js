@@ -1,6 +1,9 @@
 var VIZABI_MODEL = {
   "state": {
     "time": {
+      "startOrigin": "2000",
+      "endOrigin": "2050",
+      "value": "2017",
       "step": 1,
       "delayThresholdX2": 0,
       "delayThresholdX4": 0,
@@ -9,24 +12,24 @@ var VIZABI_MODEL = {
       "dim": "year"
     },
     "entities": {
-      "dim": "country_code",
+      "dim": "geo",
       "show": {
-        "country_code": {
-          "$in": ["903","904","905","908","909","935"]
+        "geo": {
+          "$in": ["asia","africa","europe","americas"]
         }
       }
     },
     "entities_geodomain": {
-      "dim": "country_code",
+      "dim": "geo",
       "show": {
-        "country_code": {
-          "$in": ["900"]
+        "geo": {
+          "$in": ["world"]
         }
       },
       "skipFilter": true
     },
     "entities_colorlegend": {
-      "dim": "country_code"
+      "dim": "geo"
     },
     "entities_age": {
       "dim": "age",
@@ -67,7 +70,7 @@ var VIZABI_MODEL = {
       },
       "color": {
         "use": "property",
-        "which": "country_code",
+        "which": "world_4region",
         "scaleType": "ordinal",
         "spaceRef": "entities",
         "allow": {
@@ -85,7 +88,7 @@ var VIZABI_MODEL = {
       }
     },
     "entities_allpossible": {
-      "dim": "country_code"
+      "dim": "geo"
     },
     "marker_allpossible": {
       "space": ["entities_allpossible"],
