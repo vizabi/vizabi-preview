@@ -16,7 +16,7 @@ customLoader.loaders = {
   }
 };
 
-const config = {
+const preview = {
   devtool: 'source-map',
 
   entry: {
@@ -147,8 +147,10 @@ const config = {
 };
 
 const vizabi = require('vizabi/webpack.config');
+const barRankChart = require('vizabi-barrankchart/webpack.config');
 
 module.exports = [
-  config,
+  preview,
   vizabi,
+  barRankChart
 ];

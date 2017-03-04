@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "link": "npm link ../vizabi",
+    "link": "npm link ../vizabi ../vizabi-barrankchart",
     "start": "webpack-dev-server --progress"
   },
   "keywords": [],
