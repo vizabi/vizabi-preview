@@ -1,14 +1,22 @@
 const path = require('path');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+const customLoader = require('custom-loader');
 
 const __PROD__ = process.env.NODE_ENV === 'production';
 const sep = '\\' + path.sep;
 
-const extractSCSS = new ExtractTextPlugin('preview/assets/css/main.css');
+const extractSCSS = new ExtractTextPlugin('assets/css/main.css');
+customLoader.loaders = {
+  ['tool-config-loader'](source) {
+    this.cacheable && this.cacheable();
 
-module.exports = {
+    this.value = [source];
+    return `var VIZABI_MODEL = ${source};`;
+  }
+};
+
+const config = {
   devtool: 'source-map',
 
   entry: {
@@ -16,7 +24,9 @@ module.exports = {
   },
 
   output: {
-    path: path.resolve(__dirname, 'preview'),
+    path: path.resolve(__dirname, 'build'),
+    // path: '/',
+    filename: '[name].js'
   },
 
   resolve: {
@@ -36,9 +46,17 @@ module.exports = {
         ],
         loader: 'file-loader',
         query: {
-          name: 'preview/assets/vendor/js/[1]/[name].[ext]',
-          regExp: new RegExp(`${sep}node_modules${sep}([^${sep}]+?)${sep}`)
+          name: 'assets/vendor/js/[1]/[name].[ext]',
+          regExp: new RegExp(`${sep}node_modules${sep}([^${sep}]+?)${sep}`),
         }
+      },
+
+      {
+        test: /\.js$/,
+        include: [
+          path.resolve(__dirname, 'src', 'assets', 'js'),
+        ],
+        loader: 'file-loader?name=assets/js/[name].[ext]',
       },
 
       {
@@ -48,7 +66,7 @@ module.exports = {
         ],
         loaders: [
           'file-loader?name=[name].html',
-          'pug-html-loader?exports=false'
+          'pug-html-loader?exports=false&pretty=true'
         ],
       },
 
@@ -60,20 +78,20 @@ module.exports = {
         loader: extractSCSS.extract([
           {
             loader: 'css-loader',
-            options: {
-              minimize: __PROD__,
-              sourceMap: true,
-            },
+            // options: {
+            //   minimize: __PROD__,
+            //   // sourceMap: true,
+            // },
           },
-          // {
-          //   loader: 'postcss-loader',
-          // },
+          {
+            loader: 'postcss-loader',
+          },
           {
             loader: 'sass-loader',
-            options: {
-              // TODO: check that it doesn't conflict with css source maps
-              sourceMap: true
-            },
+            // options: {
+            //   // TODO: check that it doesn't conflict with css source maps
+            //   // sourceMap: true
+            // },
           }
         ]),
       },
@@ -85,7 +103,7 @@ module.exports = {
         ],
         loader: 'file-loader',
         query: {
-          name: 'preview/assets/vendor/fonts/[name].[ext]'
+          name: 'assets/vendor/fonts/[name].[ext]'
         }
       },
 
@@ -96,8 +114,19 @@ module.exports = {
         ],
         loader: 'file-loader',
         query: {
-          name: 'preview/assets/vendor/css/[name].[ext]'
+          name: 'assets/vendor/css/[name].[ext]'
         }
+      },
+
+      {
+        test: /\.json$/,
+        include: [
+          path.resolve(__dirname, 'node_modules'),
+        ],
+        loaders: [
+          'file-loader?name=assets/js/toolconfigs/[name].js',
+          'custom-loader?name=tool-config-loader',
+        ],
       },
 
     ],
@@ -107,4 +136,19 @@ module.exports = {
     extractSCSS,
   ],
 
+  devServer: {
+    contentBase: [
+      // TODO: remove this when issue below is fixed
+      // https://github.com/webpack/webpack-dev-server/issues/641
+      path.resolve(__dirname, '..'),
+    ],
+  },
+
 };
+
+const vizabi = require('vizabi/webpack.config');
+
+module.exports = [
+  config,
+  vizabi,
+];

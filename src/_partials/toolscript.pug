@@ -88,7 +88,9 @@ script.
   }, EXT_RESOURCES);
 
   VIZABI_MODEL = Vizabi.utils.deepExtend({}, {
-    locale: {},
+    locale: {
+      filePath: '/vizabi/build/dist/assets/translation/'
+    },
     data: #{chart_data}
   }, VIZABI_MODEL);
 

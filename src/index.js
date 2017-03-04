@@ -18,3 +18,6 @@ requirePugTemplates.keys().forEach(requirePugTemplates);
 
 const requireChartConfigs = require.context('vizabi-config-systema_globalis', false, /\.json$/);
 requireChartConfigs.keys().forEach(requireChartConfigs);
+
+const requireJsAssets = require.context('./assets/js', true, /\.js$/);
+requireJsAssets.keys().forEach(requireJsAssets);

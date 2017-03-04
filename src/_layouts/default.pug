@@ -18,9 +18,9 @@ html(lang='en')
     title Vizabi - #{title}
 
     //- Styles
-    link(rel='stylesheet', href='assets/vendor/css/font-awesome.min.css')
-    link(rel='stylesheet', href='assets/css/main.css')
-    link(rel='stylesheet', href='../dist/vizabi.css')
+    link(rel='stylesheet', href='/vizabi-preview/build/assets/vendor/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/vizabi-preview/build/assets/css/main.css')
+    link(rel='stylesheet', href='/vizabi/build/dist/vizabi.css')
   body
     #vzbp-main
       include ../_partials/nav.pug
@@ -31,19 +31,19 @@ html(lang='en')
 
     include ../_partials/state_editor.pug
 
-    script(src='assets/vendor/js/d3/d3.js')
-    script(src='assets/vendor/js/vizabi-ws-reader/bundle.web.js')
-    script(src='assets/vendor/js/vizabi-ddfcsv-reader/vizabi-ddfcsv-reader.js')
-    script(src='../dist/vizabi.js')
-    script(src='assets/js/_utils.js')
-    script(src='assets/js/_collapsible.js')
-    script(src='assets/js/_url.js')
-    script(src='assets/js/_codepen.js')
-    script(src='assets/js/main.js')
-    script(src='assets/js/_state-editor.js')
-    script(src='assets/js/_size-div.js')
-    script(src='assets/js/_interaction.js')
-    script(src='assets/js/_dropdowns.js')
+    script(src='/vizabi-preview/build/assets/vendor/js/d3/d3.js')
+    script(src='/vizabi-preview/build/assets/vendor/js/vizabi-ws-reader/bundle.web.js')
+    script(src='/vizabi-preview/build/assets/vendor/js/vizabi-ddfcsv-reader/vizabi-ddfcsv-reader.js')
+    script(src='/vizabi/build/dist/vizabi.js')
+    script(src='/vizabi-preview/build/assets/js/_utils.js')
+    script(src='/vizabi-preview/build/assets/js/_collapsible.js')
+    script(src='/vizabi-preview/build/assets/js/_url.js')
+    script(src='/vizabi-preview/build/assets/js/_codepen.js')
+    script(src='/vizabi-preview/build/assets/js/main.js')
+    script(src='/vizabi-preview/build/assets/js/_state-editor.js')
+    script(src='/vizabi-preview/build/assets/js/_size-div.js')
+    script(src='/vizabi-preview/build/assets/js/_interaction.js')
+    script(src='/vizabi-preview/build/assets/js/_dropdowns.js')
 
     unless !tool
       include ../_partials/toolscript.pug
