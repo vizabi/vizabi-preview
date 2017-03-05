@@ -1,4 +1,4 @@
-// import './assets/css/main.scss';
+import './assets/css/main.scss';
 
 import 'font-awesome/css/font-awesome.min.css';
 

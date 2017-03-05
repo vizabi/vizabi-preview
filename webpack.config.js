@@ -40,7 +40,7 @@ const preview = {
     loaders: [
 
       {
-        test: /\.js$/,
+        test: /(d3|web|reader)\.js$/,
         include: [
           path.resolve(__dirname, 'node_modules'),
         ],
@@ -151,6 +151,6 @@ const barRankChart = require('vizabi-barrankchart/webpack.config');
 
 module.exports = [
   preview,
-  vizabi,
-  barRankChart
+  barRankChart,
+  vizabi
 ];
