@@ -26,7 +26,6 @@ const preview = {
 
   output: {
     path: path.resolve(__dirname, 'build'),
-    // path: '/',
     filename: '[name].js'
   },
 
@@ -142,17 +141,15 @@ const preview = {
     contentBase: [
       // TODO: remove this when issue below is fixed
       // https://github.com/webpack/webpack-dev-server/issues/641
-      path.resolve(__dirname, '..'),
+      path.resolve(__dirname, 'build'),
     ],
   },
 
 };
 
-const vizabi = require('vizabi/webpack.config');
-const barRankChart = require('vizabi-barrankchart/webpack.config');
+const dependencies = __PROD__ ? [] : [
+    'vizabi',
+    'vizabi-barrankchart'
+  ].map(pkg => require(`${pkg}/webpack.external`)(path.resolve(__dirname, 'build', pkg)));
 
-module.exports = __PROD__ ? preview : [
-  preview,
-  barRankChart,
-  vizabi
-];
+module.exports = [preview, ...dependencies];

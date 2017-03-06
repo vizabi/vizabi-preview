@@ -6,8 +6,8 @@ script.
   EXT_RESOURCES = {};
 
 script(src='assets/js/toolconfigs/' + (tool_config || tool) + '.js')
-script(src='/vizabi-' + tool.toLowerCase() + '/build/' + tool.toLowerCase() + '.js')
-link(rel='stylesheet', href='/vizabi-' + tool.toLowerCase() + '/build/' + tool.toLowerCase() + '.css')
+script(src='/vizabi-' + tool.toLowerCase() + '/dist/' + tool.toLowerCase() + '.js')
+link(rel='stylesheet', href='/vizabi-' + tool.toLowerCase() + '/dist/' + tool.toLowerCase() + '.css')
 script.
   var TITLE = "#{title}";
   var TOOL = "#{tool}";
@@ -91,7 +91,7 @@ script.
 
   VIZABI_MODEL = Vizabi.utils.deepExtend({}, {
     locale: {
-      filePath: '/vizabi/build/dist/assets/translation/'
+      filePath: '/vizabi/dist/assets/translation/'
     },
     data: #{chart_data}
   }, VIZABI_MODEL);
