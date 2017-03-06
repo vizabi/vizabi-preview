@@ -1,5 +1,6 @@
 const path = require('path');
 
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const customLoader = require('custom-loader');
 
@@ -134,6 +135,7 @@ const preview = {
 
   plugins: [
     extractSCSS,
+    new CleanWebpackPlugin(['build']),
   ],
 
   devServer: {
@@ -149,7 +151,7 @@ const preview = {
 const vizabi = require('vizabi/webpack.config');
 const barRankChart = require('vizabi-barrankchart/webpack.config');
 
-module.exports = [
+module.exports = __PROD__ ? preview : [
   preview,
   barRankChart,
   vizabi
