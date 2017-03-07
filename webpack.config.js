@@ -6,6 +6,22 @@ const customLoader = require('custom-loader');
 
 const __PROD__ = process.env.NODE_ENV === 'production';
 const sep = '\\' + path.sep;
+const stats = {
+  colors: true,
+  hash: false,
+  version: false,
+  timings: true,
+  assets: false,
+  chunks: false,
+  modules: false,
+  reasons: true,
+  children: false,
+  source: false,
+  errors: true,
+  errorDetails: true,
+  warnings: true,
+  publicPath: false
+};
 
 const extractSCSS = new ExtractTextPlugin('assets/css/main.css');
 customLoader.loaders = {
@@ -72,26 +88,26 @@ const preview = {
 
       {
         test: /\.scss$/,
-        // include: [
-        //   path.resolve(__dirname, 'src', 'assets', 'css'),
-        // ],
+        include: [
+          path.resolve(__dirname, 'src', 'assets', 'css'),
+        ],
         loader: extractSCSS.extract([
           {
             loader: 'css-loader',
-            // options: {
-            //   minimize: __PROD__,
-            //   // sourceMap: true,
-            // },
+            options: {
+              minimize: __PROD__,
+              sourceMap: true,
+            },
           },
           {
             loader: 'postcss-loader',
           },
           {
             loader: 'sass-loader',
-            // options: {
-            //   // TODO: check that it doesn't conflict with css source maps
-            //   // sourceMap: true
-            // },
+            options: {
+              quiet: true,
+              sourceMap: true,
+            },
           }
         ]),
       },
@@ -137,7 +153,9 @@ const preview = {
     new CleanWebpackPlugin(['build']),
   ],
 
+  stats,
   devServer: {
+    stats,
     contentBase: [
       // TODO: remove this when issue below is fixed
       // https://github.com/webpack/webpack-dev-server/issues/641
