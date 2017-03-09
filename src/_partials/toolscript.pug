@@ -6,8 +6,6 @@ script.
   EXT_RESOURCES = {};
 
 script(src='assets/js/toolconfigs/' + (tool_config || tool) + '.js')
-script(src='/vizabi-' + tool.toLowerCase() + '/dist/' + tool.toLowerCase() + '.js')
-link(rel='stylesheet', href='/vizabi-' + tool.toLowerCase() + '/dist/' + tool.toLowerCase() + '.css')
 script.
   var TITLE = "#{title}";
   var TOOL = "#{tool}";
