@@ -20,7 +20,7 @@ cache:
 
 before_install:
   - npm install -g npm@latest
-  - sudo apt-get install s3cmd
+  - sudo apt-get install s3cmd=1.6.1-1
 
 before_script:
   - export DISPLAY=:99.0
