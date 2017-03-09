@@ -5,9 +5,6 @@ node_js:
   - '7.5.0'
 addons:
   firefox: "42.0"
-  apt:
-    packages:
-    - s3cmd=1.6.1
 
 notifications:
   email: false
@@ -23,6 +20,7 @@ cache:
 
 before_install:
   - npm install -g npm@latest
+  - sudo apt-get install s3cmd
 
 before_script:
   - export DISPLAY=:99.0
