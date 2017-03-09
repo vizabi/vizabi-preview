@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "preinstall": "npm link ../vizabi ../vizabi-barrankchart",
+    "link": "npm link ../vizabi ../vizabi-barrankchart",
     "start": "webpack-dev-server --progress",
     "build": "cross-env NODE_ENV=production webpack --progress"
   },
