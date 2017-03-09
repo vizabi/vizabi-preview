@@ -18,10 +18,12 @@ html(lang='en')
     title Vizabi - #{title}
 
     //- Styles
-    link(rel='stylesheet', href='/assets/vendor/css/font-awesome.min.css')
-    link(rel='stylesheet', href='/assets/css/main.css')
-    link(rel='stylesheet', href='/vizabi/dist/vizabi.css')
+    link(rel='stylesheet', type='text/css', href='assets/vendor/css/font-awesome.min.css')
+    link(rel='stylesheet', type='text/css', href='assets/css/main.css')
   body
+    div#vizabi-assets
+    div#tool-assets
+
     #vzbp-main
       include ../_partials/nav.pug
       #vzbp-placeholder.vzbp-viewer
@@ -31,66 +33,18 @@ html(lang='en')
 
     include ../_partials/state_editor.pug
 
-    div#vizabi-assets
-    div#tool-assets
-
-    script(src='/assets/vendor/js/d3/d3.js')
-    script(src='/assets/vendor/js/vizabi-ws-reader/bundle.web.js')
-    script(src='/assets/vendor/js/vizabi-ddfcsv-reader/vizabi-ddfcsv-reader.js')
-    script.
-      function load(container, branch, placeholder, scriptUrls) {
-        scriptUrls.forEach(function(url) {
-          var link = '/' + placeholder + '/' + branch + '/' + url;
-          var elem;
-          
-          if (url.slice(-3) === '.js') {
-            elem = document.createElement('script');
-            elem.setAttribute('src', link);
-          } else if (url.slice(-4) === '.css') {
-            elem = document.createElement('link');
-            elem.setAttribute('rel', 'stylesheet');
-            elem.setAttribute('href', link);
-          }
-
-          elem && container.appendChild(elem);
-        });
-      }
-
-      if (!~window.location.origin.indexOf('localhost')) {
-        var url = new URLSearchParams(window.location.search);
-
-        load(
-          document.getElementById('vizabi-assets'),
-          url.get('vizabi') || 'develop',
-          'vizabi',
-          [
-            'dist/vizabi.js'
-          ]
-        );
-        
-        var tool = window.location.pathname.split('.')[0].slice(1);
-        console.log(tool);
-        load(
-          document.getElementById('tool-assets'),
-          url.get('tool') || 'master',
-          'vizabi-' + tool,
-          [
-            'dist/' + tool + '.js',
-            'dist/' + tool + '.css'
-          ]
-        );
-      }
-
-    script(src='/vizabi/dist/vizabi.js')
-    script(src='/assets/js/_utils.js')
-    script(src='/assets/js/_collapsible.js')
-    script(src='/assets/js/_url.js')
-    script(src='/assets/js/_codepen.js')
-    script(src='/assets/js/main.js')
-    script(src='/assets/js/_state-editor.js')
-    script(src='/assets/js/_size-div.js')
-    script(src='/assets/js/_interaction.js')
-    script(src='/assets/js/_dropdowns.js')
+    script(src='assets/vendor/js/d3/d3.js')
+    script(src='assets/vendor/js/vizabi-ws-reader/bundle.web.js')
+    script(src='assets/vendor/js/vizabi-ddfcsv-reader/vizabi-ddfcsv-reader.js')
+    script(src='assets/js/_utils.js')
+    script(src='assets/js/_collapsible.js')
+    script(src='assets/js/_url.js')
+    script(src='assets/js/_codepen.js')
+    script(src='assets/js/main.js')
+    script(src='assets/js/_state-editor.js')
+    script(src='assets/js/_size-div.js')
+    script(src='assets/js/_interaction.js')
+    script(src='assets/js/_dropdowns.js')
 
     unless !tool
       include ../_partials/toolscript.pug

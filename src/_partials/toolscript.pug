@@ -1,100 +1,151 @@
 script.
   var locationArray = window.location.href.split("/");
-  window.URL = null;
   var LOCAL_URL = locationArray.splice(0, locationArray.indexOf("preview")).join("/") + "/preview/";
   VIZABI_MODEL = {};
   EXT_RESOURCES = {};
 
 script(src='assets/js/toolconfigs/' + (tool_config || tool) + '.js')
 script.
-  var TITLE = "#{title}";
-  var TOOL = "#{tool}";
-  var DESCRIPTION = "#{description}";
+  function load(container, branch, placeholder, scriptUrls) {
+    return Promise.all(
+      scriptUrls.map(function(url) {
+        var link = '/' + placeholder + '/' + (branch ? (branch + '/') : '') + url;
+        var elem;
 
-  VIZABI_MODEL.bind = {
-    'ready': function (evt, vals) {
-      updateURL();
+        if (url.slice(-3) === '.js') {
+          elem = document.createElement('script');
+          elem.setAttribute('src', link);
+        } else if (url.slice(-4) === '.css') {
+          elem = document.createElement('link');
+          elem.setAttribute('rel', 'stylesheet');
+          elem.setAttribute('type', 'text/css');
+          elem.setAttribute('href', link);
+        }
+
+        if (elem) {
+          container.appendChild(elem);
+          return new Promise(function(resolve) {
+            elem.onload = elem.onerror = resolve;
+          });
+        }
+
+        return true;
+      })
+    );
+  }
+
+  var url = new URLSearchParams(window.location.search);
+  var vizabiBranch = url.get('vizabi') || 'develop';
+  var isLocalhost = ~window.location.origin.indexOf('localhost');
+  load(
+    document.getElementById('vizabi-assets'),
+    isLocalhost ? '' : vizabiBranch,
+    'vizabi',
+    [
+      'dist/vizabi' + (isLocalhost ? '' : '.min') + '.js',
+      'dist/vizabi.css'
+    ]
+  ).then(function() {
+    var tool = window.location.pathname.split('/').slice(-1)[0].split('.')[0];
+    return load(
+      document.getElementById('tool-assets'),
+      isLocalhost ? '' : url.get('tool') || 'master',
+      'vizabi-' + tool,
+      [
+        'dist/' + tool + '.js',
+        'dist/' + tool + '.css'
+      ]
+    );
+  }).then(function() {
+    var TITLE = "#{title}";
+    var TOOL = "#{tool}";
+    var DESCRIPTION = "#{description}";
+
+    VIZABI_MODEL.bind = {
+      'ready': function(evt, vals) {
+        updateURL();
+        updateStateEditor(VIZ.getModel().state);
+      },
+      'persistentChange': function(evt) {
+        updateURL(true); // force update
+      }
+    };
+
+    VIZABI_MODEL.bind['change:state'] = function(evt, vals) {
       updateStateEditor(VIZ.getModel().state);
-    },
-    'persistentChange': function (evt) {
-      updateURL(true); // force update
-    }
-  };
+    };
 
-  VIZABI_MODEL.bind['change:state'] = function (evt, vals) {
-    updateStateEditor(VIZ.getModel().state);
-  };
+    var playButton = document.getElementById("vzbp-btn-play");
+    var playButtonIcon = playButton.querySelectorAll("i")[0];
 
-  var playButton = document.getElementById("vzbp-btn-play");
-  var playButtonIcon = playButton.querySelectorAll("i")[0];
+    VIZABI_MODEL.bind['change:state.time.playing'] = function(evt, path) {
+      var playing = evt.source;
+      if (playing.value) {
+        playButton.onclick = pause;
+        playButton.setAttribute("data-tooltip", "Pause");
+        removeClass(playButtonIcon, 'fa-play');
+        addClass(playButtonIcon, 'fa-pause');
+      } else {
+        playButton.onclick = play;
+        playButton.setAttribute("data-tooltip", "Play");
+        removeClass(playButtonIcon, 'fa-pause');
+        addClass(playButtonIcon, 'fa-play');
+      }
+    };
 
-  VIZABI_MODEL.bind['change:state.time.playing'] = function (evt, path) {
-    var playing = evt.source;
-    if (playing.value) {
-      playButton.onclick = pause;
-      playButton.setAttribute("data-tooltip", "Pause");
-      removeClass(playButtonIcon, 'fa-play');
-      addClass(playButtonIcon, 'fa-pause');
-    } else {
-      playButton.onclick = play;
-      playButton.setAttribute("data-tooltip", "Play");
-      removeClass(playButtonIcon, 'fa-pause');
-      addClass(playButtonIcon, 'fa-play');
-    }
-  };
+    VIZABI_MODEL.bind['change:state.time.record'] = function(evt, path) {
+      var recButton = document.getElementById("vzbp-btn-record");
+      var recButtonIcon = recButton.querySelectorAll("i")[0];
+      var record = evt.source;
+      if (record.value) {
+        recButton.onclick = recstop;
+        recButton.setAttribute("data-tooltip", "Stop");
+        removeClass(recButtonIcon, 'fa-bullseye');
+        addClass(recButtonIcon, 'fa-circle');
+      } else {
+        recButton.onclick = recstart;
+        recButton.setAttribute("data-tooltip", "Record");
+        removeClass(recButtonIcon, 'fa-circle');
+        addClass(recButtonIcon, 'fa-bullseye');
+      }
+    };
 
-  VIZABI_MODEL.bind['change:state.time.record'] = function (evt, path) {
-    var recButton = document.getElementById("vzbp-btn-record");
-    var recButtonIcon = recButton.querySelectorAll("i")[0];
-    var record = evt.source;
-    if (record.value) {
-      recButton.onclick = recstop;
-      recButton.setAttribute("data-tooltip", "Stop");
-      removeClass(recButtonIcon, 'fa-bullseye');
-      addClass(recButtonIcon, 'fa-circle');
-    } else {
-      recButton.onclick = recstart;
-      recButton.setAttribute("data-tooltip", "Record");
-      removeClass(recButtonIcon, 'fa-circle');
-      addClass(recButtonIcon, 'fa-bullseye');
-    }
-  };
+    var langButton = document.getElementById("vzbp-btn-lang");
 
-  var langButton = document.getElementById("vzbp-btn-lang");
+    VIZABI_MODEL.bind['change:locale.id'] = function(evt, path) {
+      langButton.value = evt.source._val;
+    };
 
-  VIZABI_MODEL.bind['change:locale.id'] = function (evt, path) {
-    langButton.value = evt.source._val;
-  };
+    //WS reader integration
+    var wsReader = new WSReader.WSReader().getReader();
+    Vizabi.Reader.extend("waffle", wsReader);
 
-  //WS reader integration
-  var wsReader = new WSReader.WSReader().getReader();
-  Vizabi.Reader.extend("waffle", wsReader);
+    //DDFCSV reader integration
+    var ddfReader = new DDFCsvReader.getDDFCsvReaderObject()
+    Vizabi.Reader.extend("ddf", ddfReader);
 
-  //DDFCSV reader integration
-  var ddfReader = new DDFCsvReader.getDDFCsvReaderObject()
-  Vizabi.Reader.extend("ddf", ddfReader);
+    parseURL();
 
-  parseURL();
+    var locationArray = window.location.href.split("/");
+    var localUrl = locationArray.splice(0, locationArray.indexOf("preview")).join("/") + "/preview/";
 
-  var locationArray = window.location.href.split("/");
-  var localUrl = locationArray.splice(0, locationArray.indexOf("preview")).join("/") + "/preview/";
+    EXT_RESOURCES = Vizabi.utils.deepExtend({
+      host: 'https://waffle-server.gapminder.org',
+      preloadPath: '/api/vizabi/',
+      dataPath: '/api/ddf/',
+      //shapePath: localUrl + "data/mc_precomputed_shapes.json"
+      shapePath: localUrl + "data/zaf-municipalities-2016.json"
+    }, EXT_RESOURCES);
 
-  EXT_RESOURCES = Vizabi.utils.deepExtend({
-    host: 'https://waffle-server.gapminder.org',
-    preloadPath: '/api/vizabi/',
-    dataPath: '/api/ddf/',
-    //shapePath: localUrl + "data/mc_precomputed_shapes.json"
-    shapePath: localUrl + "data/zaf-municipalities-2016.json"
-  }, EXT_RESOURCES);
+    VIZABI_MODEL = Vizabi.utils.deepExtend({}, {
+      locale: {
+        filePath: '/vizabi' + (!isLocalhost ? ('/' + vizabiBranch) : '') + '/dist/assets/translation/'
+      },
+      data: #{chart_data}
+    }, VIZABI_MODEL);
 
-  VIZABI_MODEL = Vizabi.utils.deepExtend({}, {
-    locale: {
-      filePath: '/vizabi/dist/assets/translation/'
-    },
-    data: #{chart_data}
-  }, VIZABI_MODEL);
+    Vizabi._globals.ext_resources = EXT_RESOURCES;
+    VIZABI_PAGE_MODEL = Vizabi.utils.deepExtend({}, VIZABI_MODEL);
 
-  Vizabi._globals.ext_resources = EXT_RESOURCES;
-  VIZABI_PAGE_MODEL = Vizabi.utils.deepExtend({}, VIZABI_MODEL);
-
-  VIZ = Vizabi("#{tool}", placeholder, Vizabi.utils.deepExtend({}, VIZABI_MODEL, URLI.model));
+    VIZ = Vizabi("#{tool}", placeholder, Vizabi.utils.deepExtend({}, VIZABI_MODEL, URLI.model));
+  });
