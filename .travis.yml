@@ -4,7 +4,6 @@ sudo: true
 node_js:
   - '7.5.0'
 addons:
-  firefox: "42.0"
   apt:
     packages:
     - python-pip
