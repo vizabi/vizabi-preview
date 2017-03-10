@@ -13,6 +13,7 @@ BUILD_CMD="npm run build"
 # DEPLOY TO S3
 
 # Generate S3 configuration file
+echo ">>>>>>>>>>>>>> TEST <<<<<<<<<<<<<<<<"
 echo "[default]
 access_key = $AWS_ACCESS_KEY_ID
 secret_key = $AWS_SECRET_KEY
