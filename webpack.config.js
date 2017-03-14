@@ -160,6 +160,7 @@ const preview = {
       // TODO: remove this when issue below is fixed
       // https://github.com/webpack/webpack-dev-server/issues/641
       path.resolve(__dirname, 'build'),
+      path.resolve(__dirname, 'src'),
     ],
   },
 
