@@ -49,7 +49,7 @@ script.
     var tool = window.location.pathname.split('/').slice(-1)[0].split('.')[0];
     return load(
       document.getElementById('tool-assets'),
-      isLocalhost ? '' : url.get('tool') || 'master',
+      isLocalhost ? '' : url.get('tool') || 'develop',
       'vizabi-' + tool,
       [
         'dist/' + tool + '.js',
