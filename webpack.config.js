@@ -1,5 +1,6 @@
 const path = require('path');
 
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const customLoader = require('custom-loader');
@@ -151,6 +152,12 @@ const preview = {
   plugins: [
     extractSCSS,
     new CleanWebpackPlugin(['build']),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, 'src', 'data'),
+        to: path.resolve(path.resolve(__dirname, 'build', 'dist', 'data')),
+      }
+    ]),
   ],
 
   stats,
@@ -160,7 +167,6 @@ const preview = {
       // TODO: remove this when issue below is fixed
       // https://github.com/webpack/webpack-dev-server/issues/641
       path.resolve(__dirname, 'build'),
-      path.resolve(__dirname, 'src'),
     ],
   },
 

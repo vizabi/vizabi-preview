@@ -22,6 +22,7 @@
     "autoprefixer": "^6.7.6",
     "bourbon": "^4.3.3",
     "clean-webpack-plugin": "^0.1.15",
+    "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^3.2.3",
     "css-loader": "^0.27.3",
     "custom-loader": "^0.1.3",
