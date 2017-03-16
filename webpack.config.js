@@ -177,6 +177,7 @@ const dependencies = __PROD__ ? [] : [
     'vizabi-barrankchart',
     'vizabi-bubblechart',
     'vizabi-mountainchart',
+    'vizabi-linechart',
   ].map(pkg => require(`${pkg}/webpack.external`)(path.resolve(__dirname, 'build', pkg)));
 
 module.exports = [preview, ...dependencies];
