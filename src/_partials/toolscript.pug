@@ -4,7 +4,7 @@ script.
   VIZABI_MODEL = {};
   EXT_RESOURCES = {};
 
-script(src='assets/js/toolconfigs/' + (tool_config || tool) + '.js')
+script(src='assets/js/' + (tool_config || tool) + '.js')
 script.
   function load(container, branch, placeholder, scriptUrls) {
     return Promise.all(
