@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "link": "npm link ../vizabi ../vizabi-barrankchart ../vizabi-bubblechart ../vizabi-mountainchart ../vizabi-linechart ../vizabi-cartogramchart",
+    "link": "npm link ../vizabi ../vizabi-barrankchart ../vizabi-bubblechart ../vizabi-mountainchart ../vizabi-linechart ../vizabi-cartogramchart ../vizabi-agepyramidchart",
     "start": "webpack-dev-server --progress",
     "build": "cross-env NODE_ENV=production webpack --progress"
   },

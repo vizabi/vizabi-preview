@@ -77,6 +77,14 @@ const preview = {
       },
 
       {
+        test: /\.js$/,
+        include: [
+          path.resolve(__dirname, 'src', 'assets', 'js', 'toolconfigs'),
+        ],
+        loader: 'file-loader?name=assets/js/toolconfigs/[name].[ext]',
+      },
+
+      {
         test: /\.pug$/,
         include: [
           path.resolve(__dirname, 'src', 'tools')
@@ -179,6 +187,7 @@ const dependencies = __PROD__ ? [] : [
     'vizabi-mountainchart',
     'vizabi-linechart',
     'vizabi-cartogramchart',
+    'vizabi-agepyramidchart',
   ].map(pkg => require(`${pkg}/webpack.external`)(path.resolve(__dirname, 'build', pkg)));
 
 module.exports = [preview, ...dependencies];
