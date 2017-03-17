@@ -163,7 +163,7 @@ const preview = {
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, 'src', 'data'),
-        to: path.resolve(path.resolve(__dirname, 'build', 'dist', 'data')),
+        to: path.resolve(path.resolve(__dirname, 'build', 'data')),
       }
     ]),
   ],
