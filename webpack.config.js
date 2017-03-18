@@ -171,6 +171,7 @@ const preview = {
   stats,
   devServer: {
     stats,
+    host: "0.0.0.0",
     contentBase: [
       // TODO: remove this when issue below is fixed
       // https://github.com/webpack/webpack-dev-server/issues/641
