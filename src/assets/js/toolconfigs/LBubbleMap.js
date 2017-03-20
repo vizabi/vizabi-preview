@@ -97,7 +97,25 @@ let VIZABI_MODEL = {
       "showMap": true,
       "offset": {
         "top": 0.05,
-        "bottom": -0.12
+        "bottom": -0.12,
+        "left": 0,
+        "right": 0
+      },
+      "path": null,
+      "bounds": {
+        "north": 60.25,
+        "west": 17.4,
+        "south": 58.7,
+        "east": 19.6
+      },
+      "projection": "mercator",
+      "topology": {
+        "path": "data/sodertorn-basomr2010.json",
+        "objects": {
+          "geo": "c1e171fae817c0bfc26dc7df82219e08",
+          "boundaries": "c1e171fae817c0bfc26dc7df82219e08"
+        },
+        "geoIdProperty": "BASKOD2010"
       }
     },
     "splash": true
