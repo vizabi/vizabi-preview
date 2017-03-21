@@ -12,27 +12,27 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "d3": "^4.5.0",
+    "d3": "^4.7.3",
     "font-awesome": "^4.7.0",
-    "vizabi-config-systema_globalis": "^1.0.0",
+    "vizabi-config-systema_globalis": "^1.1.0",
     "vizabi-ddfcsv-reader": "^0.7.2",
     "vizabi-ws-reader": "^0.1.2"
   },
   "devDependencies": {
-    "autoprefixer": "^6.7.6",
+    "autoprefixer": "^6.7.7",
     "bourbon": "^4.3.3",
-    "clean-webpack-plugin": "^0.1.15",
+    "clean-webpack-plugin": "^0.1.16",
     "copy-webpack-plugin": "^4.0.1",
-    "cross-env": "^3.2.3",
+    "cross-env": "^3.2.4",
     "css-loader": "^0.27.3",
     "custom-loader": "^0.1.3",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
-    "node-sass": "^4.5.0",
+    "node-sass": "^4.5.1",
     "postcss-loader": "^1.3.3",
     "pug-html-loader": "^1.1.1",
-    "sass-loader": "^6.0.2",
+    "sass-loader": "^6.0.3",
     "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.4.1"
+    "webpack-dev-server": "^2.4.2"
   }
 }
