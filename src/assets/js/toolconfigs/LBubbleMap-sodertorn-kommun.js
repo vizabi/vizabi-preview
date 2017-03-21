@@ -35,7 +35,7 @@ let VIZABI_MODEL = {
         "which": "population_20xx_12_31",
         "use": "indicator",
         "scaleType": "linear",
-        "extent": [0, 0.4],
+        "extent": [0, 0.95],
         "allow": {
           "scales": ["linear"]
         }
