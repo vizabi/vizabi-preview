@@ -121,8 +121,8 @@ let VIZABI_MODEL = {
     "splash": true
   },
   "data": {
-    reader: 'waffle',
-    path: 'https://waffle-server-dev.gapminderdev.org/api/ddf',
+    reader: 'ddf',
+    path: 'data/ddf--sodertorn--stockholm_lan_basomrade',
     dataset: 'open-numbers/ddf--sodertorn--stockholm_lan_basomrade'
   }
 };
