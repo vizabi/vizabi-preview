@@ -14,7 +14,7 @@
   "dependencies": {
     "d3": "^4.7.3",
     "font-awesome": "^4.7.0",
-    "vizabi-config-systema_globalis": "^1.1.0",
+    "vizabi-config-systema_globalis": "^1.2.0",
     "vizabi-ddfcsv-reader": "^0.7.2",
     "vizabi-ws-reader": "^0.1.2"
   },
