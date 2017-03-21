@@ -8,8 +8,8 @@ let VIZABI_MODEL = {
       "delay": 700
     },
     "entities": {
-      "dim": "basomrade",
-      "show": {"size": "big"}
+      "dim": "municipality",
+      "show": {}
     },
     "entities_colorlegend": {
       "dim": "municipality"
@@ -28,7 +28,7 @@ let VIZABI_MODEL = {
       },
       "hook_centroid": {
         "use": "property",
-        "which": "baskod2010",
+        "which": "map_id",
         "_important": true
       },
       "size": {
@@ -110,12 +110,12 @@ let VIZABI_MODEL = {
       },
       "projection": "mercator",
       "topology": {
-        "path": "data/sodertorn-basomr2010.json",
+        "path": "data/sodertorn-kommun.json",
         "objects": {
-          "geo": "c1e171fae817c0bfc26dc7df82219e08",
-          "boundaries": "c1e171fae817c0bfc26dc7df82219e08"
+          "geo": "SWE_adm2",
+          "boundaries": "SWE_adm2"
         },
-        "geoIdProperty": "BASKOD2010"
+        "geoIdProperty": "ID_2"
       }
     },
     "splash": true
