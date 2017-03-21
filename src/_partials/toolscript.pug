@@ -142,6 +142,7 @@ script.
 
     Vizabi._globals.ext_resources = EXT_RESOURCES;
     VIZABI_PAGE_MODEL = Vizabi.utils.deepExtend({}, VIZABI_MODEL);
-
-    VIZ = Vizabi("#{tool}", placeholder, Vizabi.utils.deepExtend({}, VIZABI_MODEL, URLI.model));
+    delete VIZABI_PAGE_MODEL.bind;
+    
+    VIZ = Vizabi("#{tool}", placeholder, Vizabi.utils.deepExtend({}, VIZABI_MODEL, URLI.model, true));
   });
