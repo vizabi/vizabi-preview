@@ -90,8 +90,8 @@ let VIZABI_MODEL = {
     "map": {
       "scale": 1,
       "preserveAspectRatio": true,
-      "mapEngine": "google",
-      "mapStyle": "terrain",
+      "mapEngine": "mapbox",
+      "mapStyle": "mapbox://styles/mapbox/streets-v9",
       "showBubbles": true,
       "showAreas": true,
       "showMap": true,
