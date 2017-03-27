@@ -13,6 +13,8 @@ import 'vizabi-ddfcsv-reader/dist/vizabi-ddfcsv-reader';
 import 'vizabi-ws-reader/dist/bundle.web';
 import 'd3/build/d3';
 
+require('url-search-params-polyfill');
+
 const requirePugTemplates = require.context('./tools', false, /\.pug$/);
 requirePugTemplates.keys().forEach(requirePugTemplates);
 
