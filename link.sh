@@ -9,3 +9,4 @@ npm link ../vizabi-cartogram
 npm link ../vizabi-popbyage
 npm link ../vizabi-extapimap
 npm link ../vizabi-bubblemap
+npm link ../vizabi-barchart-ds
