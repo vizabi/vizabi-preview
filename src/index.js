@@ -15,11 +15,11 @@ import 'd3/build/d3';
 
 require('url-search-params-polyfill');
 
-const requirePugTemplates = require.context('./tools', false, /\.pug$/);
+var requirePugTemplates = require.context('./tools', false, /\.pug$/);
 requirePugTemplates.keys().forEach(requirePugTemplates);
 
-const requireChartConfigs = require.context('vizabi-config-systema_globalis', false, /\.json$/);
+var requireChartConfigs = require.context('vizabi-config-systema_globalis', false, /\.json$/);
 requireChartConfigs.keys().forEach(requireChartConfigs);
 
-const requireJsAssets = require.context('./assets/js', true, /\.js$/);
+var requireJsAssets = require.context('./assets/js', true, /\.js$/);
 requireJsAssets.keys().forEach(requireJsAssets);
