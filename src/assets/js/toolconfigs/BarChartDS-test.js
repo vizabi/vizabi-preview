@@ -2,8 +2,8 @@ var VIZABI_MODEL = {
   "state": {
     "time": {
       "startOrigin": "2000",
-      "endOrigin": "2050",
-      "value": "2017",
+      "endOrigin": "2014",
+      "value": "2014",
       "step": 1,
       "delayThresholdX2": 0,
       "delayThresholdX4": 0,
@@ -12,17 +12,12 @@ var VIZABI_MODEL = {
       "dim": "year"
     },
     "entities": {
-      "dim": "geo",
-      "show": {
-        "geo": {
-          "$in": ["asia","africa","europe","americas"]
-        }
-      }
+      "dim": null
     },
     "entities_geodomain": {
-      "dim": "geo",
+      "dim": "basomrade",
       "show": {
-        "geo": {
+        "basomrade": {
           "$in": ["world"]
         }
       },
@@ -40,6 +35,13 @@ var VIZABI_MODEL = {
       "dim": "gender",
       "skipFilter": true
     },
+    "marker_order": {
+      "space": ["entities_age", "time"],
+      "hook_order": {
+        "use": "indicator",
+        "which": "mean_income_aged_lt_20"
+      }
+    },
     "marker": {
       "space": ["entities", "time", "entities_side", "entities_age", "entities_geodomain"],
       "label_stack": {
@@ -54,24 +56,18 @@ var VIZABI_MODEL = {
       },
       "axis_y": {
         "use": "property",
-        "which": "name",
+        "which": "basomrade",
         "spaceRef": "entities_age",
-        "domainMax": 100,
-        "domainMin": 0,
         "_important": false
       },
       "axis_x": {
         "use": "indicator",
-        "which": "population"
+        "which": "mean_income_aged_lt_20"
       },
       "color": {
-        "use": "property",
-        "which": "world_4region",
-        "scaleType": "ordinal",
+        "use": "indicator",
+        "which": "higher_education_min_3_years_percent_of_population_aged_25_64",
         "spaceRef": "entities",
-        "allow": {
-          "scales": ["ordinal"]
-        },
         "syncModels": ["marker_colorlegend"]
       },
       "side": {
