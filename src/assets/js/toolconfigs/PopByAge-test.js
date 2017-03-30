@@ -14,6 +14,7 @@ var VIZABI_MODEL = {
     "entities": {
       "dim": "geo",
       "show": {
+        "is--world_4region": true,
         "geo": {
           "$in": ["asia","africa","europe","americas"]
         }
@@ -41,6 +42,11 @@ var VIZABI_MODEL = {
       "grouping": 1
     },
     "entities_side": {
+      "show": {
+        "gender" :  {
+          "$in": ["female", "male"]
+        }
+      },
       "dim": "gender",
       "skipFilter": true
     },
@@ -88,7 +94,7 @@ var VIZABI_MODEL = {
       }
     },
     "entities_allpossible": {
-      "dim": "geo"
+      "dim": "world_4region"
     },
     "marker_allpossible": {
       "space": ["entities_allpossible"],
