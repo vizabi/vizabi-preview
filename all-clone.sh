@@ -10,5 +10,5 @@ git clone https://github.com/vizabi/vizabi-cartogram.git vizabi-cartogram
 git clone https://github.com/vizabi/vizabi-popbyage.git vizabi-popbyage
 git clone https://github.com/vizabi/vizabi-extapimap.git vizabi-extapimap
 git clone https://github.com/vizabi/vizabi-bubblemap.git vizabi-bubblemap
-git clone https://github.com/vizabi/vizabi-barchart.git vizabi-barchart
+git clone https://github.com/vizabi/vizabi-barchart-ds.git vizabi-barchart-ds
 cd vizabi-preview
