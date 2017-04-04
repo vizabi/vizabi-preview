@@ -44,7 +44,7 @@ var VIZABI_MODEL = {
       "space": ["entities_age", "time"],
       "hook_order": {
         "use": "indicator",
-        "which": "mean_income_aged_lt_20"
+        "which": "higher_education_min_3_years_percent_of_population_aged_25_64"
       }
     },
     "marker": {
