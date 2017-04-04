@@ -33,6 +33,11 @@ var VIZABI_MODEL = {
     },
     "entities_side": {
       "dim": "gender",
+      "show": {
+        "gender": {
+          "$in": ["female", "male"]
+        }
+      },
       "skipFilter": true
     },
     "marker_order": {
@@ -52,6 +57,11 @@ var VIZABI_MODEL = {
       "label_side": {
         "use": "property",
         "spaceRef": "entities_side",
+        "which": "name"
+      },
+      "label_age": {
+        "use": "property",
+        "spaceRef": "entities_age",
         "which": "name"
       },
       "axis_y": {
