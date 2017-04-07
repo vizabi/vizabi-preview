@@ -14,9 +14,8 @@ var VIZABI_MODEL = {
     "entities": {
       "dim": "geo",
       "show": {
-        "is--world_4region": true,
         "geo": {
-          "$in": ["asia","africa","europe","americas"]
+          "$in": ["world"]
         }
       }
     },
@@ -42,12 +41,14 @@ var VIZABI_MODEL = {
       "grouping": 1
     },
     "entities_side": {
-      "show": {
-        "gender" :  {
-          "$in": ["female", "male"]
-        }
-      },
-      "dim": "gender",
+//      "show": {
+//        "gender" :  {
+//          "$in": ["female", "male"]
+//        }
+//      },
+//      "dim": "gender",
+      "show": {},
+      "dim": null,
       "skipFilter": true
     },
     "marker": {
@@ -85,8 +86,10 @@ var VIZABI_MODEL = {
         "syncModels": ["marker_colorlegend"]
       },
       "side": {
-        "use": "property",
-        "which": "gender",
+        //"use": "property",
+        //"which": "gender",
+        "use": "constant",
+        "which": "_default",
         "spaceRef": "entities_side",
         "allow": {
           "scales": ["ordinal"]
@@ -94,7 +97,7 @@ var VIZABI_MODEL = {
       }
     },
     "entities_allpossible": {
-      "dim": "world_4region"
+      "dim": "geo"
     },
     "marker_allpossible": {
       "space": ["entities_allpossible"],
@@ -104,7 +107,10 @@ var VIZABI_MODEL = {
       }
     },
     "entities_allpossibleside": {
-      "dim": "gender"
+      //"dim": "gender"
+      "show": {},
+      "dim": null,
+      "skipFilter": false
     },
     "marker_allpossibleside": {
       "space": ["entities_allpossibleside"],
