@@ -83,6 +83,9 @@ var VIZABI_MODEL = {
         "allow": {
           "scales": ["ordinal"]
         },
+        "palette": {
+          "world": "#ffb600"
+        },
         "syncModels": ["marker_colorlegend"]
       },
       "side": {
@@ -104,6 +107,10 @@ var VIZABI_MODEL = {
       "label": {
         "use": "property",
         "which": "name"
+      },
+      "color": {
+        "use": "property",
+        "which": "world_4region"
       }
     },
     "entities_allpossibleside": {
