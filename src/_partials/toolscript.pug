@@ -52,8 +52,8 @@ script.
       isLocalhost ? '' : url.get('tool') || 'develop',
       'vizabi-' + tool,
       [
-        'dist/' + tool + '.js',
-        'dist/' + tool + '.css'
+        tool + '.js',
+        tool + '.css'
       ]
     );
   }).then(function() {
