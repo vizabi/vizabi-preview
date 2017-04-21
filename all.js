@@ -1,8 +1,7 @@
 const shell = require('shelljs');
 
 
-const [cmd] = process.argv.slice(2);
-const command = cmd === 'ncu' ? `${cmd} -u` : cmd.split('-').join(' ').trim();
+const command = process.argv.slice(2).join(' ').split('_').join(' ');
 
 const packages = require('./packages').concat(command !== 'git push' ? 'vizabi-preview' : []);
 
