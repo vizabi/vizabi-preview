@@ -181,17 +181,7 @@ const preview = {
 
 };
 
-const dependencies = __PROD__ ? [] : [
-    'vizabi',
-    'vizabi-barrankchart',
-    'vizabi-bubblechart',
-    'vizabi-mountainchart',
-    'vizabi-linechart',
-    'vizabi-cartogram',
-    'vizabi-popbyage',
-    'vizabi-extapimap',
-    'vizabi-bubblemap',
-    'vizabi-barchart-ds',
-  ].map(pkg => require(`${pkg}/webpack.external`)(path.resolve(__dirname, 'build', pkg)));
+const getWebpackConfig = (pkg) => require(`${pkg}/webpack.external`)(path.resolve(__dirname, 'build', pkg));
+const dependencies = !__PROD__ ? require('./packages').map(getWebpackConfig) : [];
 
 module.exports = [preview, ...dependencies];
