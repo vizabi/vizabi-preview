@@ -1,11 +1,11 @@
 const shell = require('shelljs');
 
 
-const command = process.argv.slice(2).join(' ').split('_').join(' ');
+const command = process.argv.slice(2).join(' ').trim();
 
-const packages = require('./packages').concat(command !== 'git push' ? 'vizabi-preview' : []);
+const packages = require('./packages').concat(!command.startsWith('git push') ? 'vizabi-preview' : []);
 
-if (command === 'git clone') {
+if (command.startsWith('git clone')) {
   shell.cd('..');
   packages.forEach((pkg) => shell.exec(`${command} https://github.com/vizabi/${pkg}.git ${pkg}`));
 } else {
