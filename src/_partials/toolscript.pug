@@ -42,8 +42,8 @@ script.
     isLocalhost ? '' : vizabiBranch,
     'vizabi',
     [
-      'dist/vizabi' + (isLocalhost ? '' : '.min') + '.js',
-      'dist/vizabi.css'
+      'vizabi' + (isLocalhost ? '' : '.min') + '.js',
+      'vizabi.css'
     ]
   ).then(function() {
     var tool = window.location.pathname.split('/').slice(-1)[0].split('.')[0];
@@ -135,7 +135,7 @@ script.
 
     VIZABI_MODEL = Vizabi.utils.deepExtend({}, {
       locale: {
-        filePath: '/vizabi' + (!isLocalhost ? ('/' + vizabiBranch) : '') + '/dist/assets/translation/'
+        filePath: '/vizabi' + (!isLocalhost ? ('/' + vizabiBranch) : '') + '/assets/translation/'
       },
       data: #{chart_data}
     }, VIZABI_MODEL);
