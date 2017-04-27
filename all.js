@@ -9,5 +9,5 @@ if (command.startsWith('git clone')) {
   shell.cd('..');
   packages.forEach((pkg) => shell.exec(`${command} https://github.com/vizabi/${pkg}.git ${pkg}`));
 } else {
-  packages.forEach((pkg) => shell.exec(`cd ../${pkg}; ${command}`));
+  packages.forEach((pkg) => shell.exec(`cd ../${pkg} && ${command}`));
 }
