@@ -10,7 +10,7 @@ import 'font-awesome/fonts/fontawesome-webfont.woff';
 import 'font-awesome/fonts/fontawesome-webfont.woff2';
 
 import 'vizabi-ddfcsv-reader/dist/vizabi-ddfcsv-reader';
-import 'vizabi-ws-reader/dist/bundle.web';
+import 'vizabi-ws-reader/dist/vizabi-ws-reader';
 import 'd3/build/d3';
 
 require('url-search-params-polyfill');
