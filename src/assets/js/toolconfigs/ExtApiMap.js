@@ -53,6 +53,14 @@ let VIZABI_MODEL = {
         "syncModels": ["marker_colorlegend"]
       }
     },
+    "marker_allpossible": {
+      "space": ["entities"],
+      "label": {
+          "use": "property",
+          "which": "name"
+      },
+      "skipFilter": true
+    },
     "marker_colorlegend": {
       "space": ["entities_colorlegend"],
       "opacityRegular": 0.8,
