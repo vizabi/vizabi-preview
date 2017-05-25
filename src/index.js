@@ -18,7 +18,7 @@ require('url-search-params-polyfill');
 var requirePugTemplates = require.context('./tools', false, /\.pug$/);
 requirePugTemplates.keys().forEach(requirePugTemplates);
 
-var requireChartConfigs = require.context('vizabi-config-systema_globalis', false, /\.json$/);
+var requireChartConfigs = require.context('vizabi-config-systema_globalis/dist', false, /\.json$/);
 requireChartConfigs.keys().forEach(requireChartConfigs);
 
 var requireJsAssets = require.context('./assets/js', true, /\.js$/);
