@@ -19,6 +19,8 @@ const execAsync = (command) => shell.exec(command, { async: true, silent: true }
 if (command.startsWith('git clone')) {
   shell.cd('..');
   packages.forEach((pkg) => execAsync(`${command} https://github.com/vizabi/${pkg}.git ${pkg}`));
+} else if (command.startsWith('npm link')) {
+  packages.forEach((pkg) => execAsync(`${command} ../${pkg}`));
 } else {
   packages.forEach((pkg) => execAsync(`cd ../${pkg} && ${command}`));
 }
