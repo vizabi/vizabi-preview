@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "link": "./link.sh",
+    "link": "npm run all npm link",
     "start": "webpack-dev-server --progress",
     "build": "cross-env NODE_ENV=production webpack --progress",
     "all": "node all.js"
