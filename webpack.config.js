@@ -171,6 +171,7 @@ const preview = {
   stats,
   devServer: {
     stats,
+    disableHostCheck: true,
     host: "0.0.0.0",
     contentBase: [
       // TODO: remove this when issue below is fixed
