@@ -1,8 +1,4 @@
 var timeLogger = {
-  _styles: {
-    background: "#262626",
-    color: "#ccff00",
-  },
   _values: {},
 
   add: function (key) {
@@ -33,12 +29,13 @@ var timeLogger = {
     const value = this._values[key];
     if (value && !value.isSnapped) {
       value.isSnapped = true;
-      this._log(key);
+      return this._diff(key);
     }
+    return 0;
   },
 
   snap: function (key) {
-    this._values[key] && this._log(key);
+    return this._values[key] ? this._diff(key) : 0;
   },
 
   remove: function (key) {
@@ -49,16 +46,7 @@ var timeLogger = {
     return performance.now();
   },
 
-  _log: function (key) {
-    var time = ((this._now() - this._values[key].time) / 1000).toFixed(4);
-    var message = key + " load time: " + time + " seconds";
-    console.log("%c • %c" + message + " ", this._getStylesString({ color: "red" }), this._getStylesString());
+  _diff: function (key) {
+    return ((this._now() - this._values[key].time) / 1000).toFixed(4);
   },
-
-  _getStylesString: function (styles) {
-    return Object.keys(styles = Object.assign({}, this._styles, styles))
-      .reduce(function (result, key) {
-        return result + key + ":" + styles[key] + ";";
-      }, "");
-  }
 };

@@ -61,11 +61,20 @@ script.
     var TOOL = "#{tool}";
     var DESCRIPTION = "#{description}";
 
+    var splashTiming = document.getElementById('vzbp-timing-splash')
+    var fullTiming = document.getElementById('vzbp-timing-full')
+    var dataTiming = document.getElementById('vzbp-timing-data')
+    var totalTiming = document.getElementById('vzbp-timing-total')
+
     VIZABI_MODEL.bind = {
       'ready': function(evt, vals) {
-        timeLogger.snapOnce("SPLASH");
-        timeLogger.snapOnce("FULL");
+        var splashTime = timeLogger.snapOnce("SPLASH");
+        splashTime && (splashTiming.innerText = splashTime);
+
+        var fullTime = timeLogger.snapOnce("FULL");
+        fullTime && (fullTiming.innerText = fullTime);
         timeLogger.add("FULL");
+
         timeLogger.add("DATA");
         timeLogger.update("DATA");
 
@@ -76,8 +85,11 @@ script.
         updateURL(true); // force update
       },
       'dataLoaded': function() {
-        timeLogger.snapOnce("DATA");
-        timeLogger.snapOnce("TOTAL");
+        var dataTime = timeLogger.snapOnce("DATA");
+        dataTime && (dataTiming.innerText = dataTime);
+
+        var totalTime = timeLogger.snapOnce("TOTAL");
+        totalTime && (totalTiming.innerText = totalTime);
       }
     };
 
