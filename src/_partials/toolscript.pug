@@ -63,11 +63,21 @@ script.
 
     VIZABI_MODEL.bind = {
       'ready': function(evt, vals) {
+        timeLogger.snapOnce("SPLASH");
+        timeLogger.snapOnce("FULL");
+        timeLogger.add("FULL");
+        timeLogger.add("DATA");
+        timeLogger.update("DATA");
+
         updateURL();
         updateStateEditor(VIZ.getModel().state);
       },
       'persistentChange': function(evt) {
         updateURL(true); // force update
+      },
+      'dataLoaded': function() {
+        timeLogger.snapOnce("DATA");
+        timeLogger.snapOnce("TOTAL");
       }
     };
 
@@ -143,6 +153,8 @@ script.
     Vizabi._globals.ext_resources = EXT_RESOURCES;
     VIZABI_PAGE_MODEL = Vizabi.utils.deepExtend({}, VIZABI_MODEL);
     delete VIZABI_PAGE_MODEL.bind;
-    
+
+    timeLogger.add("TOTAL")
+    timeLogger.add("SPLASH");
     VIZ = Vizabi("#{tool}", placeholder, Vizabi.utils.deepExtend({}, VIZABI_MODEL, URLI.model, true));
   });
