@@ -6,6 +6,7 @@ html {
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
 body {
   background-color: $vzbp-color-background;
   font-family: $vzbp-font-family;
@@ -47,11 +48,12 @@ a {
   @include prefixer(box-sizing, border-box, webkit moz spec);
   @include position(absolute, 0 $vzbp-width-sidebar 0 0);
   @include prefixer(transform, translate3d(0, 0, 0), webkit moz spec);
-  transition: right .2s linear;
+  transition: right 0.2s linear;
   &.vzbp-fullscreen {
     @include position(absolute, 0 0 0 0);
   }
 }
+
 #vzbp-main.vzb-container-fullscreen {
   @include position(absolute, 0 0 0 0);
   width: 100%;
@@ -66,7 +68,7 @@ a {
   width: $vzbp-width-sidebar;
   background-color: $vzbp-color-sidebar;
   padding: 20px 5px 20px 15px;
-  transition: right .2s linear;
+  transition: right 0.2s linear;
 }
 
 #vzbp-state-editor {
@@ -78,7 +80,7 @@ a {
   background-color: $vzbp-color-editor;
   color: #fff;
   padding: 20px;
-  transition: right .2s linear;
+  transition: right 0.2s linear;
 }
 
 .vzbp-nav-state-editor {
