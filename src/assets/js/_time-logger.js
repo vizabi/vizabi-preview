@@ -47,6 +47,6 @@ var timeLogger = {
   },
 
   _diff: function (key) {
-    return ((this._now() - this._values[key].time) / 1000).toFixed(4);
+    return ((this._now() - this._values[key].time) / 1000).toFixed(3);
   },
 };
