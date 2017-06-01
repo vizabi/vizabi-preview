@@ -1,3 +1,4 @@
+// sass-lint:disable no-ids
 $vzbp-width-nav: 110px;
 $vzbp-width-sidebar: 90px;
 $vzbp-width-state-editor: 250px;
@@ -14,18 +15,18 @@ body {
 }
 
 p {
-  margin: 0px;
+  margin: 0;
 }
 
 a {
   color: #404040;
   &:hover {
-    color: #111111;
+    color: #111;
   }
 }
 
 .vzbp-input {
-  border-color: #cccccc;
+  border-color: #ccc;
   border-style: solid;
   font-size: 12px;
   padding: 8px;
@@ -45,8 +46,8 @@ a {
 #vzbp-main {
   @include prefixer(box-sizing, border-box, webkit moz spec);
   @include position(absolute, 0 $vzbp-width-sidebar 0 0);
-  transition: right 0.2s linear;
   @include prefixer(transform, translate3d(0, 0, 0), webkit moz spec);
+  transition: right .2s linear;
   &.vzbp-fullscreen {
     @include position(absolute, 0 0 0 0);
   }
@@ -61,28 +62,28 @@ a {
 #vzbp-sidebar {
   @include prefixer(box-sizing, border-box, webkit moz spec);
   @include position(absolute, 0 0 -100px null);
+  @include prefixer(transform, translate3d(0, 0, 0), webkit moz spec);
   width: $vzbp-width-sidebar;
   background-color: $vzbp-color-sidebar;
   padding: 20px 5px 20px 15px;
-  transition: right 0.2s linear;
-  @include prefixer(transform, translate3d(0, 0, 0), webkit moz spec);
+  transition: right .2s linear;
 }
 
 #vzbp-state-editor {
-  $posRight: $vzbp-width-state-editor * -1;
+  $pos-right: $vzbp-width-state-editor * -1;
   @include prefixer(box-sizing, border-box, webkit moz spec);
-  @include position(absolute, 0 $posRight -100px null);
+  @include position(absolute, 0 $pos-right -100px null);
+  @include prefixer(transform, translate3d(0, 0, 0), webkit moz spec);
   width: $vzbp-width-state-editor;
   background-color: $vzbp-color-editor;
-  color: white;
+  color: #fff;
   padding: 20px;
-  transition: right 0.2s linear;
-  @include prefixer(transform, translate3d(0, 0, 0), webkit moz spec);
+  transition: right .2s linear;
 }
 
 .vzbp-nav-state-editor {
   #vzbp-state-editor {
-    right: 0px;
+    right: 0;
   }
   #vzbp-sidebar {
     right: $vzbp-width-state-editor;
