@@ -1,6 +1,6 @@
 .vzbp-viewer {
   @include position(absolute, 0 0 0 0);
-  @include prefixer(box-shadow, 0 0 7px 0 rgba(0, 0, 0, .1), webkit moz spec);
+  @include prefixer(box-shadow, 0 0 7px 0 rgba(0, 0, 0, 0.1), webkit moz spec);
   position: absolute !important;
   margin: auto;
   background-color: #fff;

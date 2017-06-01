@@ -14,7 +14,7 @@
   }
   #vzbp-state-editor-textarea {
     @include prefixer(box-sizing, border-box, webkit moz spec);
-    @include prefixer(box-shadow, inset 11px 0 20px -3px rgba(0, 0, 0, .15), webkit moz spec);
+    @include prefixer(box-shadow, inset 11px 0 20px -3px rgba(0, 0, 0, 0.15), webkit moz spec);
     font-family: $vzbp-font-family-editor;
     font-size: 11px;
     position: absolute;
@@ -29,7 +29,7 @@
     overflow: auto;
     padding: 20px;
     margin: 0;
-    opacity: .7;
+    opacity: 0.7;
     &:active,
     &:focus {
       outline: none;
