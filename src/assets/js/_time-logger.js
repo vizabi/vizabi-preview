@@ -29,7 +29,7 @@ var timeLogger = {
     }
   },
 
-  snapOnce(key) {
+  snapOnce: function (key) {
     const value = this._values[key];
     if (value && !value.isSnapped) {
       value.isSnapped = true;
@@ -55,7 +55,7 @@ var timeLogger = {
     console.log("%c • %c" + message + " ", this._getStylesString({ color: "red" }), this._getStylesString());
   },
 
-  _getStylesString(styles) {
+  _getStylesString: function (styles) {
     return Object.keys(styles = Object.assign({}, this._styles, styles))
       .reduce(function (result, key) {
         return result + key + ":" + styles[key] + ";";
