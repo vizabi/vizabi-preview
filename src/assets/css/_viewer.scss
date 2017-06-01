@@ -1,13 +1,13 @@
 .vzbp-viewer {
   @include position(absolute, 0 0 0 0);
+  @include prefixer(box-shadow, 0 0 7px 0 rgba(0, 0, 0, .1), webkit moz spec);
   position: absolute !important;
-  @include prefixer(box-shadow, 0px 0px 7px 0px rgba(0, 0, 0, 0.1), webkit moz spec);
   margin: auto;
-  background-color: #FFFFFF;
+  background-color: #fff;
   width: 320px;
   height: 568px;
-  border: 1px solid #BBBEC8;
-  &:after {
+  border: 1px solid #bbbec8;
+  &::after {
     @include position(absolute, null 0 0 null);
     content: '';
     display: block;
@@ -36,5 +36,5 @@
   bottom: 0 !important;
   width: auto !important;
   height: auto !important;
-  border: none;
+  border: 0;
 }
