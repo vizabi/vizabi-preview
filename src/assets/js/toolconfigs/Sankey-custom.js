@@ -28,7 +28,15 @@ let VIZABI_MODEL = {
     }
   },
   locale: { id: "en" },
-  ui: {},
+  ui: {
+    chart: { },
+    buttons: ["moreoptions"],
+    dialogs: {
+      popup: ["moreoptions"],
+      sidebar: [],
+      moreoptions: ["speed", "about"]
+    }
+  },
   data: {
     keySize: 2,
     // reader: "ddf",
