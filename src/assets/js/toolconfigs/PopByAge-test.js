@@ -1,7 +1,7 @@
 var VIZABI_MODEL = {
   "state": {
     "time": {
-      "startOrigin": "1800",
+      "startOrigin": "1950",
       "endOrigin": "2100",
       "value": "2017",
       "step": 1,
@@ -41,12 +41,6 @@ var VIZABI_MODEL = {
       "grouping": 1
     },
     "entities_side": {
-//      "show": {
-//        "gender" :  {
-//          "$in": ["female", "male"]
-//        }
-//      },
-//      "dim": "gender",
       "show": {},
       "dim": null,
       "skipFilter": true
@@ -89,8 +83,6 @@ var VIZABI_MODEL = {
         "syncModels": ["marker_colorlegend"]
       },
       "side": {
-        //"use": "property",
-        //"which": "gender",
         "use": "constant",
         "which": "_default",
         "spaceRef": "entities_side",
@@ -100,7 +92,14 @@ var VIZABI_MODEL = {
       }
     },
     "entities_allpossible": {
-      "dim": "geo"
+      "dim": "geo",
+       "show": {
+         "$or": [
+           {"is--country": true},
+           {"is--global": true},
+           {"is--world_4region": true}
+         ]
+      }
     },
     "marker_allpossible": {
       "space": ["entities_allpossible"],
@@ -114,7 +113,6 @@ var VIZABI_MODEL = {
       }
     },
     "entities_allpossibleside": {
-      //"dim": "gender"
       "show": {},
       "dim": null,
       "skipFilter": false
