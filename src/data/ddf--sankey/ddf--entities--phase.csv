@@ -1,24 +1,24 @@
 phase,name
-"Coal, peat and oil shale",
-"Crude,NGL and feedstocks",Crude Oil
-Oil products,Oil Products 
-Natural gas,Natural Gas
-Nuclear,Nuclear
-Renewables and waste,Renewables and Waste
-Electricity,Electricity
-Heat,Heat
-Fossil Fuels,Fossil Fuls
-Renewable sources,Renewable Resources 
-CHP plants (ktoe),CHP Plants
-Electricity output (GWh),Electricity Output
-Electricity plants (ktoe),Electricity Plants
-Exports (ktoe),Exports
-Heat plants (ktoe),Heat 
-Imports (ktoe),Imports
-Industry (ktoe),Industry
-of which: Commerce and public services (ktoe),Commerce
-of which: Residential (ktoe),Residential
-"Oil refineries, transformation (ktoe)",Oil Refineries
-Other (ktoe),Other
-Production (ktoe),Production
-Transport (ktoe),Transport
+coal_peat_and_oil_shale,"Coal, peat and oil shale"
+crude_ngl_and_feed_stocks,Crude Oil
+oil_products,Oil Products
+natural_gas,Natural Gas
+nuclear,Nuclear
+renewables_and_waste,Renewables and Waste
+electricity,Electricity
+heat,Heat
+fossil_fuels,Fossil Fuls
+renewable_sources,Renewable Resources
+chp_plants_ktoe,CHP Plants
+electricity_output_gwh,Electricity Output
+electricity_plants_ktoe,Electricity Plants
+exports_ktoe,Exports
+heat_plants_ktoe,Heat
+imports_ktoe,Imports
+industry_ktoe,Industry
+of_which_commerce_and_public_services_ktoe,Commerce
+of_which_residential_ktoe,Residential
+oil_refineries_transformation_ktoe,Oil Refineries
+other_ktoe,Other
+production_ktoe,Production
+transport_ktoe,Transport
