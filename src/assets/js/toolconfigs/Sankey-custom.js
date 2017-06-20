@@ -5,10 +5,10 @@ let VIZABI_MODEL = {
       startOrigin: "1800",
       value: "2014"
     },
-    entities: {
-      dim: null
+    entities_colorlegend: {
+      dim: "phase_from"
     },
-    entities_from: {
+    entities: {
       dim: "phase_from"
     },
     entities_to: {
@@ -17,13 +17,37 @@ let VIZABI_MODEL = {
     marker: {
       space: [
         "entities",
-        "entities_from",
         "entities_to",
         "time"
       ],
+      color: {
+        use: "indicator",
+        which: "amount",
+        syncModels: ["marker_colorlegend"]
+      },
+      label: {
+        use: "indicator",
+        which: "amount",
+      },
       size: {
         use: "indicator",
         which: "amount"
+      }
+    },
+    marker_tags: { space: [], label: { }},
+    "marker_colorlegend": {
+      "space": ["entities_colorlegend"],
+      "label": {
+        "use": "property",
+        "which": "name"
+      },
+      "hook_rank": {
+        "use": "property",
+        "which": "rank"
+      },
+      "hook_geoshape": {
+        "use": "property",
+        "which": "shape_lores_svg"
       }
     }
   },
@@ -32,8 +56,8 @@ let VIZABI_MODEL = {
     chart: { },
     buttons: ["moreoptions"],
     dialogs: {
-      popup: ["moreoptions"],
-      sidebar: [],
+      popup: ["moreoptions","colors"],
+      sidebar: ["colors"],
       moreoptions: ["speed", "about"]
     }
   },
