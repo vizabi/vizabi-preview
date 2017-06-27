@@ -2,7 +2,6 @@ script.
   var locationArray = window.location.href.split("/");
   var LOCAL_URL = locationArray.splice(0, locationArray.indexOf("preview")).join("/") + "/preview/";
   VIZABI_MODEL = {};
-  EXT_RESOURCES = {};
 
 script(src='assets/js/toolconfigs/' + (tool_config || tool) + '.js')
 script.
@@ -148,13 +147,6 @@ script.
 
     parseURL();
 
-    EXT_RESOURCES = Vizabi.utils.deepExtend({
-      host: 'https://waffle-server.gapminder.org',
-      preloadPath: '/api/vizabi/',
-      dataPath: '/api/ddf/',
-      shapePath: "data/mc_precomputed_shapes.json"
-    }, EXT_RESOURCES);
-
     VIZABI_MODEL = Vizabi.utils.deepExtend({}, {
       locale: {
         filePath: '/vizabi' + (!isLocalhost ? ('/' + vizabiBranch) : '') + '/assets/translation/'
@@ -162,7 +154,6 @@ script.
       data: #{chart_data}
     }, VIZABI_MODEL);
 
-    Vizabi._globals.ext_resources = EXT_RESOURCES;
     VIZABI_PAGE_MODEL = Vizabi.utils.deepExtend({}, VIZABI_MODEL);
     delete VIZABI_PAGE_MODEL.bind;
 
