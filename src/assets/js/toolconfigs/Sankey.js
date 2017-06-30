@@ -1,0 +1,2 @@
+var VIZABI_MODEL = {
+};
