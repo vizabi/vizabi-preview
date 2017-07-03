@@ -1,2 +1,0 @@
-var VIZABI_MODEL = {
-};
