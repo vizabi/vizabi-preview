@@ -21,7 +21,7 @@
     "font-awesome": "^4.7.0",
     "vizabi-config-systema_globalis": "^1.2.4",
     "vizabi-ddfcsv-reader": "^0.9.1",
-    "vizabi-ws-reader": "0.2.0"
+    "vizabi-ws-reader": "0.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",
@@ -38,8 +38,8 @@
     "pug-html-loader": "^1.1.4",
     "sass-loader": "^6.0.5",
     "shelljs": "^0.7.7",
-    "url-search-params-polyfill": "^1.2.0",
-    "webpack": "^2.6.1",
+    "url-search-params-polyfill": "^2.0.0",
+    "webpack": "^3.0.0",
     "webpack-dev-server": "^2.4.5"
   }
 }
