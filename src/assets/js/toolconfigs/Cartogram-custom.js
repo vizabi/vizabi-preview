@@ -79,6 +79,6 @@ var VIZABI_MODEL = {
   "data": {
     "reader": "csv",
     "path": "data/zaf/waffles/ddf--datapoints--piped_water_percentage--electricity_lighting_percentage--by--year--municipality.csv",
-    "preloadPath": LOCAL_URL + "data/zaf/",
+    "assetsPath": LOCAL_URL + "data/zaf/",
   }
 };
