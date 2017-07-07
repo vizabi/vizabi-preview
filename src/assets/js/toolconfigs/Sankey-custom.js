@@ -34,38 +34,30 @@ let VIZABI_MODEL = {
         which: "amount"
       }
     },
-    marker_tags: { space: [], label: { }},
+    marker_tags: { space: [], label: {} },
     "marker_colorlegend": {
       "space": ["entities_colorlegend"],
       "label": {
         "use": "property",
         "which": "name"
-      },
-      "hook_rank": {
-        "use": "property",
-        "which": "rank"
-      },
-      "hook_geoshape": {
-        "use": "property",
-        "which": "shape_lores_svg"
       }
     }
   },
   locale: { id: "en" },
   ui: {
-    chart: { },
+    chart: {},
     buttons: ["moreoptions"],
     dialogs: {
-      popup: ["moreoptions","colors"],
-      sidebar: ["colors"],
+      popup: ["timedisplay", "moreoptions", "colors"],
+      sidebar: ["timedisplay", "colors"],
       moreoptions: ["speed", "about"]
     }
   },
   data: {
-    keySize: 2,
     // reader: "ddf",
-    // path: "data/ddf--sankey"
+    // path: "data/ddf--sankey",
+    keySize: 2,
     reader: "csv",
-    path: "data/ddf--sankey/test.csv"
+    path: "data/ddf--sankey/test3.csv"
   }
 };

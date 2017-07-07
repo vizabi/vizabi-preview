@@ -77,8 +77,8 @@
         "datapoints": [
             {
                 "primaryKey": [
-                    "phase",
-                    "phase",
+                    "phase_from",
+                    "phase_to",
                     "year"
                 ],
                 "value": "amount",
