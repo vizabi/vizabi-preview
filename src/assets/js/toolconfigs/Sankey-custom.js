@@ -2,11 +2,17 @@ let VIZABI_MODEL = {
   state: {
     time: {
       dim: "year",
-      startOrigin: "1800",
+      startOrigin: "2014",
       value: "2014"
     },
+    // entities_colorlegend: {
+    //   dim: "phase_from",
+    // },
     entities_colorlegend: {
-      dim: "phase_from"
+      dim: "phase",
+      show: {
+        "is--phase_from": true,
+      }
     },
     entities: {
       dim: "phase_from"
@@ -22,7 +28,7 @@ let VIZABI_MODEL = {
       ],
       color: {
         use: "indicator",
-        which: "amount",
+        which: "color",
         syncModels: ["marker_colorlegend"]
       },
       label: {
@@ -54,10 +60,11 @@ let VIZABI_MODEL = {
     }
   },
   data: {
-    // reader: "ddf",
-    // path: "data/ddf--sankey",
-    keySize: 2,
-    reader: "csv",
-    path: "data/ddf--sankey/test3.csv"
+    reader: "ddf",
+    path: "data/ddf--sankey",
+    // keySize: 2,
+    // reader: "csv",
+    // // path: "data/ddf--sankey/test3.csv"
+    // path: "data/ddf--sankey/ddf--datapoints--amount--by--phase_from--phase_to--year.csv"
   }
 };
