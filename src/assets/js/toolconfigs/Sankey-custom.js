@@ -28,7 +28,8 @@ let VIZABI_MODEL = {
       ],
       color: {
         use: "indicator",
-        which: "color",
+        which: "amount",
+        // scaleType: "ordinal",
         syncModels: ["marker_colorlegend"]
       },
       label: {
@@ -41,13 +42,18 @@ let VIZABI_MODEL = {
       }
     },
     marker_tags: { space: [], label: {} },
-    "marker_colorlegend": {
-      "space": ["entities_colorlegend"],
-      "label": {
-        "use": "property",
-        "which": "name"
+    marker_colorlegend: {
+      space: ["entities_colorlegend"],
+      label: {
+        use: "property",
+        which: "name"
+      },
+      color: {
+        use: "property",
+        which: "color",
+        scaleType: "ordinal"
       }
-    }
+    },
   },
   locale: { id: "en" },
   ui: {
@@ -64,7 +70,6 @@ let VIZABI_MODEL = {
     path: "data/ddf--sankey",
     // keySize: 2,
     // reader: "csv",
-    // // path: "data/ddf--sankey/test3.csv"
-    // path: "data/ddf--sankey/ddf--datapoints--amount--by--phase_from--phase_to--year.csv"
+    // path: "data/ddf--sankey/test3.csv"
   }
 };

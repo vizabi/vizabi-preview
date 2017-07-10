@@ -1,24 +1,24 @@
-phase,name,is--phase_from,is--phase_to
-coal_peat_and_oil_shale,"Coal, peat and oil shale",TRUE,TRUE
-crude_ngl_and_feed_stocks,Crude Oil,TRUE,TRUE
-oil_products,Oil Products,TRUE,TRUE
-natural_gas,Natural Gas,TRUE,TRUE
-nuclear,Nuclear,TRUE,TRUE
-renewables_and_waste,Renewables and Waste,TRUE,TRUE
-electricity,Electricity,TRUE,TRUE
-heat,Heat,TRUE,TRUE
-fossil_fuels,Fossil Fuls,TRUE,TRUE
-renewable_sources,Renewable Resources,TRUE,TRUE
-chp_plants_ktoe,CHP Plants,TRUE,TRUE
-electricity_output_gwh,Electricity Output,TRUE,TRUE
-electricity_plants_ktoe,Electricity Plants,TRUE,TRUE
-exports_ktoe,Exports,TRUE,TRUE
-heat_plants_ktoe,Heat,TRUE,TRUE
-imports_ktoe,Imports,TRUE,TRUE
-industry_ktoe,Industry,TRUE,TRUE
-of_which_commerce_and_public_services_ktoe,Commerce,TRUE,TRUE
-of_which_residential_ktoe,Residential,TRUE,TRUE
-oil_refineries_transformation_ktoe,Oil Refineries,TRUE,TRUE
-other_ktoe,Other,TRUE,TRUE
-production_ktoe,Production,TRUE,TRUE
-transport_ktoe,Transport,TRUE,TRUE
+phase,name,is--phase_from,is--phase_to,color
+coal_peat_and_oil_shale,"Coal, peat and oil shale",TRUE,TRUE,#ff00ff
+crude_ngl_and_feed_stocks,Crude Oil,TRUE,TRUE,#ff00ff
+oil_products,Oil Products,TRUE,TRUE,#ff00ff
+natural_gas,Natural Gas,TRUE,TRUE,#ff00ff
+nuclear,Nuclear,TRUE,TRUE,#ff00ff
+renewables_and_waste,Renewables and Waste,TRUE,TRUE,#ff00ff
+electricity,Electricity,TRUE,TRUE,#ff00ff
+heat,Heat,TRUE,TRUE,#ff00ff
+fossil_fuels,Fossil Fuls,TRUE,TRUE,#ff00ff
+renewable_sources,Renewable Resources,TRUE,TRUE,#ff00ff
+chp_plants_ktoe,CHP Plants,TRUE,TRUE,#ff00ff
+electricity_output_gwh,Electricity Output,TRUE,TRUE,#ff00ff
+electricity_plants_ktoe,Electricity Plants,TRUE,TRUE,#ff00ff
+exports_ktoe,Exports,TRUE,TRUE,#ff00ff
+heat_plants_ktoe,Heat,TRUE,TRUE,#ff00ff
+imports_ktoe,Imports,TRUE,TRUE,#ff00ff
+industry_ktoe,Industry,TRUE,TRUE,#ff00ff
+of_which_commerce_and_public_services_ktoe,Commerce,TRUE,TRUE,#ff00ff
+of_which_residential_ktoe,Residential,TRUE,TRUE,#ff00ff
+oil_refineries_transformation_ktoe,Oil Refineries,TRUE,TRUE,#ff00ff
+other_ktoe,Other,TRUE,TRUE,#ff00ff
+production_ktoe,Production,TRUE,TRUE,#ff00ff
+transport_ktoe,Transport,TRUE,TRUE,#ff00ff
