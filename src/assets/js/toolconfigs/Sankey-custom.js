@@ -38,21 +38,18 @@ let VIZABI_MODEL = {
       }
     },
     marker_tags: { space: [], label: {} },
-    marker_nodes: {
+    marker_entities: {
       space: ["entities_colorlegend"],
+      label: {
+        use: "property",
+        which: "name",
+      },
       color: {
         use: "property",
         which: "color",
         scaleType: "ordinal"
       }
     },
-    marker_labels: {
-      space: ["entities_colorlegend"],
-      label: {
-        use: "property",
-        which: "name",
-      }
-    }
   },
   locale: { id: "en" },
   ui: {
