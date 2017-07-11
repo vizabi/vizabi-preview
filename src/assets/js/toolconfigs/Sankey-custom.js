@@ -9,10 +9,7 @@ let VIZABI_MODEL = {
     //   dim: "phase_from",
     // },
     entities_colorlegend: {
-      dim: "phase",
-      show: {
-        "is--phase_from": true,
-      }
+      dim: "phase"
     },
     entities: {
       dim: "phase_from"
@@ -30,7 +27,6 @@ let VIZABI_MODEL = {
         use: "indicator",
         which: "amount",
         // scaleType: "ordinal",
-        syncModels: ["marker_colorlegend"]
       },
       label: {
         use: "indicator",
@@ -42,18 +38,21 @@ let VIZABI_MODEL = {
       }
     },
     marker_tags: { space: [], label: {} },
-    marker_colorlegend: {
+    marker_nodes: {
       space: ["entities_colorlegend"],
-      label: {
-        use: "property",
-        which: "name"
-      },
       color: {
         use: "property",
         which: "color",
         scaleType: "ordinal"
       }
     },
+    marker_labels: {
+      space: ["entities_colorlegend"],
+      label: {
+        use: "property",
+        which: "name",
+      }
+    }
   },
   locale: { id: "en" },
   ui: {
