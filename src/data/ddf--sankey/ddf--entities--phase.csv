@@ -1,24 +1,49 @@
-phase,name
-coal_peat_and_oil_shale,"Coal, peat and oil shale"
-crude_ngl_and_feed_stocks,Crude Oil
-oil_products,Oil Products
-natural_gas,Natural Gas
-nuclear,Nuclear
-renewables_and_waste,Renewables and Waste
-electricity,Electricity
-heat,Heat
-fossil_fuels,Fossil Fuls
-renewable_sources,Renewable Resources
-chp_plants_ktoe,CHP Plants
-electricity_output_gwh,Electricity Output
-electricity_plants_ktoe,Electricity Plants
-exports_ktoe,Exports
-heat_plants_ktoe,Heat
-imports_ktoe,Imports
-industry_ktoe,Industry
-of_which_commerce_and_public_services_ktoe,Commerce
-of_which_residential_ktoe,Residential
-oil_refineries_transformation_ktoe,Oil Refineries
-other_ktoe,Other
-production_ktoe,Production
-transport_ktoe,Transport
+phase,name,is--phase_from,is--phase_to,color
+agricultural_waste,Agricultural waste,TRUE,TRUE,#919d33
+agriculture,Agriculture,TRUE,TRUE,#54b251
+bioconversion,Bio-conversion,TRUE,TRUE,#0dd158
+biofuel_imports,Biofuel imports,TRUE,TRUE,#23c79b
+biomass_imports,Biomass imports,TRUE,TRUE,#099f93
+coal,Coal,TRUE,TRUE,#504242
+coal_imports,Coal imports,TRUE,TRUE,#676161
+coal_reserves,Coal reserves,TRUE,TRUE,#6d4747
+district_heating,District heating,TRUE,TRUE,#c3bda6
+domestic_aviation,Domestic aviation,TRUE,TRUE,#9a9ec4
+electricity_grid,Electricity grid,TRUE,TRUE,#ffa337
+gas,Gas,TRUE,TRUE,#9099ff
+gas_imports,Gas imports,TRUE,TRUE,#636fff
+gas_reserves,Gas reserves,TRUE,TRUE,#7f85c7
+geothermal,Geothermal,TRUE,TRUE,#931313
+h2,H2,TRUE,TRUE,#e3aea9
+h2_conversion,H2 conversion,TRUE,TRUE,#e3aea9
+heating_and_cooling_commercial,Heating and cooling - commercial,TRUE,TRUE,#9055b4
+heating_and_cooling_homes,Heating and cooling - homes,TRUE,TRUE,#9055b4
+hydro,Hydro,TRUE,TRUE,#1221bd
+industry,Industry,TRUE,TRUE,#1221bd
+international_aviation,International aviation,TRUE,TRUE,#1221bd
+international_shipping,International shipping,TRUE,TRUE,#1221bd
+lighting_and_appliances_commercial,Lighting & appliances - commercial,TRUE,TRUE,#1221bd
+lighting_and_appliances_homes,Lighting & appliances - homes,TRUE,TRUE,#1221bd
+liquid,Liquid,TRUE,TRUE,#1221bd
+losses,Losses,TRUE,TRUE,#898989
+marine_algae,Marine algae,TRUE,TRUE,#1221bd
+national_navigation,National navigation,TRUE,TRUE,#1221bd
+ngas,Ngas,TRUE,TRUE,#1221bd
+nuclear,Nuclear,TRUE,TRUE,#f75cfd
+oil,Oil,TRUE,TRUE,#713071
+oil_imports,Oil imports,TRUE,TRUE,#713071
+oil_reserves,Oil reserves,TRUE,TRUE,#713071
+other_waste,Other waste,TRUE,TRUE,#8d8530
+over_generation_and_exports,Over generation / exports,TRUE,TRUE,#1221bd
+pumped_heat,Pumped heat,TRUE,TRUE,#79750d
+rail_transport,Rail transport,TRUE,TRUE,#1221bd
+road_transport,Road transport,TRUE,TRUE,#1221bd
+solar,Solar,TRUE,TRUE,#e0d228
+solar_pv,Solar PV,TRUE,TRUE,#e0d228
+solar_thermal,Solar Thermal,TRUE,TRUE,#e0d228
+solid,Solid,TRUE,TRUE,#1221bd
+thermal_generation,Thermal generation,TRUE,TRUE,#a25b14
+tidal,Tidal,TRUE,TRUE,#1221bd
+uk_land_based_bioenergy,UK land based bioenergy,TRUE,TRUE,#1221bd
+wave,Wave,TRUE,TRUE,#1221bd
+wind,Wind,TRUE,TRUE,#3b4ae6

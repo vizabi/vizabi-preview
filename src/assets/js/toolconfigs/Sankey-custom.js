@@ -2,11 +2,14 @@ let VIZABI_MODEL = {
   state: {
     time: {
       dim: "year",
-      startOrigin: "1800",
+      startOrigin: "2014",
       value: "2014"
     },
+    // entities_colorlegend: {
+    //   dim: "phase_from",
+    // },
     entities_colorlegend: {
-      dim: "phase_from"
+      dim: "phase"
     },
     entities: {
       dim: "phase_from"
@@ -23,7 +26,7 @@ let VIZABI_MODEL = {
       color: {
         use: "indicator",
         which: "amount",
-        syncModels: ["marker_colorlegend"]
+        // scaleType: "ordinal",
       },
       label: {
         use: "indicator",
@@ -34,30 +37,27 @@ let VIZABI_MODEL = {
         which: "amount"
       }
     },
-    marker_tags: { space: [], label: { }},
-    "marker_colorlegend": {
-      "space": ["entities_colorlegend"],
-      "label": {
-        "use": "property",
-        "which": "name"
+    marker_tags: { space: [], label: {} },
+    marker_entities: {
+      space: ["entities_colorlegend"],
+      label: {
+        use: "property",
+        which: "name",
       },
-      "hook_rank": {
-        "use": "property",
-        "which": "rank"
-      },
-      "hook_geoshape": {
-        "use": "property",
-        "which": "shape_lores_svg"
+      color: {
+        use: "property",
+        which: "color",
+        scaleType: "ordinal"
       }
-    }
+    },
   },
   locale: { id: "en" },
   ui: {
-    chart: { },
+    chart: {},
     buttons: ["moreoptions"],
     dialogs: {
-      popup: ["moreoptions","colors"],
-      sidebar: ["colors"],
+      popup: ["timedisplay", "moreoptions", "colors"],
+      sidebar: ["timedisplay", "colors"],
       moreoptions: ["speed", "about"]
     }
   }
