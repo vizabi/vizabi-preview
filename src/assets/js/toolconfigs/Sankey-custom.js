@@ -58,6 +58,7 @@ let VIZABI_MODEL = {
   },
   locale: { id: "en" },
   ui: {
+    splash: true,
     chart: {},
     buttons: ["moreoptions"],
     dialogs: {
