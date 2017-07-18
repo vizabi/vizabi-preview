@@ -28,6 +28,11 @@ let VIZABI_MODEL = {
         which: "amount",
         // scaleType: "ordinal",
       },
+      axis: {
+        use: "indicator",
+        which: "amount",
+        allow: { scales: ["linear", "log"] },
+      },
       label: {
         use: "indicator",
         which: "amount",
