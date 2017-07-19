@@ -5,10 +5,7 @@ let VIZABI_MODEL = {
       startOrigin: "2014",
       value: "2014"
     },
-    // entities_colorlegend: {
-    //   dim: "phase_from",
-    // },
-    entities_colorlegend: {
+    entities_all: {
       dim: "phase"
     },
     entities: {
@@ -44,7 +41,7 @@ let VIZABI_MODEL = {
     },
     marker_tags: { space: [], label: {} },
     marker_entities: {
-      space: ["entities_colorlegend"],
+      space: ["entities_all"],
       label: {
         use: "property",
         which: "name",
@@ -62,8 +59,8 @@ let VIZABI_MODEL = {
     chart: {},
     buttons: ["moreoptions"],
     dialogs: {
-      popup: ["timedisplay", "moreoptions", "colors"],
-      sidebar: ["timedisplay", "colors"],
+      popup: ["timedisplay", "moreoptions"],
+      sidebar: ["timedisplay"],
       moreoptions: ["speed", "about"]
     }
   }
