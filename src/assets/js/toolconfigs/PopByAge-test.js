@@ -1,9 +1,6 @@
 var VIZABI_MODEL = {
   "state": {
     "time": {
-      "startOrigin": "1950",
-      "endOrigin": "2100",
-      "value": "2017",
       "step": 1,
       "delayThresholdX2": 0,
       "delayThresholdX4": 0,
