@@ -21,7 +21,7 @@
     "font-awesome": "^4.7.0",
     "vizabi-config-systema_globalis": "^1.2.6",
     "vizabi-ddfcsv-reader": "^0.9.2",
-    "vizabi-ws-reader": "1.0.1"
+    "vizabi-ws-reader": "2.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
