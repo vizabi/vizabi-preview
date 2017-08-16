@@ -28,7 +28,7 @@
     "bourbon": "^4.3.4",
     "clean-webpack-plugin": "^0.1.16",
     "copy-webpack-plugin": "^4.0.1",
-    "cross-env": "^5.0.1",
+    "cross-env": "^5.0.5",
     "css-loader": "^0.28.4",
     "custom-loader": "^0.1.3",
     "extract-text-webpack-plugin": "^3.0.0",
@@ -39,7 +39,7 @@
     "sass-loader": "^6.0.6",
     "shelljs": "^0.7.8",
     "url-search-params-polyfill": "^2.0.0",
-    "webpack": "^3.3.0",
-    "webpack-dev-server": "^2.5.1"
+    "webpack": "^3.5.4",
+    "webpack-dev-server": "^2.7.1"
   }
 }
