@@ -20,20 +20,6 @@ let VIZABI_MODEL = {
         "entities_to",
         "time"
       ],
-      color: {
-        use: "indicator",
-        which: "amount",
-        // scaleType: "ordinal",
-      },
-      axis: {
-        use: "indicator",
-        which: "amount",
-        allow: { scales: ["linear", "log"] },
-      },
-      label: {
-        use: "indicator",
-        which: "amount",
-      },
       size: {
         use: "indicator",
         which: "amount"
