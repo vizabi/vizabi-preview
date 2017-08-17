@@ -5,18 +5,18 @@ let VIZABI_MODEL = {
       startOrigin: "2014",
       value: "2014"
     },
-    entities_all: {
+    entities: {
       dim: "phase"
     },
-    entities: {
+    entities_from: {
       dim: "phase_from"
     },
     entities_to: {
       dim: "phase_to"
     },
-    marker: {
+    marker_links: {
       space: [
-        "entities",
+        "entities_from",
         "entities_to",
         "time"
       ],
@@ -40,8 +40,8 @@ let VIZABI_MODEL = {
       }
     },
     marker_tags: { space: [], label: {} },
-    marker_entities: {
-      space: ["entities_all"],
+    marker: {
+      space: ["entities"],
       label: {
         use: "property",
         which: "name",
