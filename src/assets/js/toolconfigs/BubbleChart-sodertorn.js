@@ -9,7 +9,7 @@ var VIZABI_MODEL = {
     },
     "entities": {
       "dim": "basomrade",
-      "show": { }
+      "show": {}
     },
     "entities_colorlegend": {
       "dim": "municipality"
@@ -30,9 +30,7 @@ var VIZABI_MODEL = {
       "axis_x": {
         "which": "mean_income_aged_lt_20",
         "use": "indicator",
-        "scaleType": "log",
-        "zoomedMin": "64000",
-        "zoomedMax": "700000"
+        "scaleType": "log"
       },
       "size": {
         "which": "population_20xx_12_31",
@@ -77,11 +75,19 @@ var VIZABI_MODEL = {
         "use": "property",
         "which": "parent"
       }
+    },
+    "marker_allpossible": {
+      "space": ["entities"],
+      "label": {
+        "use": "property",
+        "which": "name"
+      },
+      "skipFilter": true
     }
   },
   "data": {
     reader: 'waffle',
-    path: 'https://waffle-server-dev.gapminderdev.org/api/ddf',
+    path: 'https://waffle-server-dev.gapminderdev.org/api/ddf/ql',
     dataset: 'open-numbers/ddf--sodertorn--stockholm_lan_basomrade'
   },
   "ui": {
@@ -93,6 +99,18 @@ var VIZABI_MODEL = {
       "labels": {"removeLabelBox": true},
       "trails": false
     },
-    "splash": true
+    "splash": true,
+    "dialogs": {
+      "popup": ["colors", "show", "find", "size", "zoom", "moreoptions"],
+      "dialog": {
+        "show": {
+          enablePicker: true
+        },
+        "find": {
+          enablePicker: true
+        }
+      }
+    },
+    "buttons": ["colors", "show", "find", "trails", "lock", "moreoptions", "fullscreen", "presentation"]
   }
 };

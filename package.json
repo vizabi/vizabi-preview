@@ -1,38 +1,45 @@
 {
   "name": "vizabi-preview",
   "version": "1.0.0",
-  "description": "",
+  "description": "A preview page for developers to work with different vizabi tools",
   "main": "index.js",
   "scripts": {
-    "link": "./link.sh",
+    "link": "npm run all npm link",
     "start": "webpack-dev-server --progress",
-    "build": "cross-env NODE_ENV=production webpack --progress"
+    "build": "cross-env NODE_ENV=production webpack --progress",
+    "all": "node all.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vizabi/vizabi-preview.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "d3": "^4.7.3",
+    "d3": "^4.10.0",
     "font-awesome": "^4.7.0",
-    "vizabi-config-systema_globalis": "^1.1.0",
-    "vizabi-ddfcsv-reader": "^0.7.2",
-    "vizabi-ws-reader": "^0.1.2"
+    "vizabi-config-systema_globalis": "^1.2.6",
+    "vizabi-ddfcsv-reader": "^0.10.0",
+    "vizabi-ws-reader": "2.0.1"
   },
   "devDependencies": {
-    "autoprefixer": "^6.7.7",
-    "bourbon": "^4.3.3",
+    "autoprefixer": "^7.1.2",
+    "bourbon": "^4.3.4",
     "clean-webpack-plugin": "^0.1.16",
     "copy-webpack-plugin": "^4.0.1",
-    "cross-env": "^3.2.4",
-    "css-loader": "^0.27.3",
+    "cross-env": "^5.0.5",
+    "css-loader": "^0.28.4",
     "custom-loader": "^0.1.3",
-    "extract-text-webpack-plugin": "^2.1.0",
-    "file-loader": "^0.10.1",
-    "node-sass": "^4.5.1",
-    "postcss-loader": "^1.3.3",
-    "pug-html-loader": "^1.1.1",
-    "sass-loader": "^6.0.3",
-    "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.4.2"
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.6",
+    "pug-html-loader": "^1.1.5",
+    "sass-loader": "^6.0.6",
+    "shelljs": "^0.7.8",
+    "url-search-params-polyfill": "^2.0.0",
+    "webpack": "^3.5.4",
+    "webpack-dev-server": "^2.7.1"
   }
 }

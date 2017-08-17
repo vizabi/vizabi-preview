@@ -110,6 +110,9 @@ const preview = {
           },
           {
             loader: 'postcss-loader',
+            options: {
+              sourceMap: true
+            },
           },
           {
             loader: 'sass-loader',
@@ -171,6 +174,7 @@ const preview = {
   stats,
   devServer: {
     stats,
+    disableHostCheck: true,
     host: "0.0.0.0",
     contentBase: [
       // TODO: remove this when issue below is fixed
@@ -181,16 +185,7 @@ const preview = {
 
 };
 
-const dependencies = __PROD__ ? [] : [
-    'vizabi',
-    'vizabi-barrankchart',
-    'vizabi-bubblechart',
-    'vizabi-mountainchart',
-    'vizabi-linechart',
-    'vizabi-cartogram',
-    'vizabi-popbyage',
-    'vizabi-extapimap',
-    'vizabi-bubblemap',
-  ].map(pkg => require(`${pkg}/webpack.external`)(path.resolve(__dirname, 'build', pkg)));
+const getWebpackConfig = (pkg) => require(`${pkg}/webpack.external`)(path.resolve(__dirname, 'build', pkg));
+const dependencies = !__PROD__ ? require('./packages').map(getWebpackConfig) : [];
 
 module.exports = [preview, ...dependencies];

@@ -10,14 +10,16 @@ import 'font-awesome/fonts/fontawesome-webfont.woff';
 import 'font-awesome/fonts/fontawesome-webfont.woff2';
 
 import 'vizabi-ddfcsv-reader/dist/vizabi-ddfcsv-reader';
-import 'vizabi-ws-reader/dist/bundle.web';
+import 'vizabi-ws-reader/dist/vizabi-ws-reader';
 import 'd3/build/d3';
 
-const requirePugTemplates = require.context('./tools', false, /\.pug$/);
+require('url-search-params-polyfill');
+
+var requirePugTemplates = require.context('./tools', false, /\.pug$/);
 requirePugTemplates.keys().forEach(requirePugTemplates);
 
-const requireChartConfigs = require.context('vizabi-config-systema_globalis', false, /\.json$/);
+var requireChartConfigs = require.context('vizabi-config-systema_globalis/dist', false, /\.json$/);
 requireChartConfigs.keys().forEach(requireChartConfigs);
 
-const requireJsAssets = require.context('./assets/js', true, /\.js$/);
+var requireJsAssets = require.context('./assets/js', true, /\.js$/);
 requireJsAssets.keys().forEach(requireJsAssets);

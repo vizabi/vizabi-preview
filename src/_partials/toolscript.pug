@@ -2,7 +2,6 @@ script.
   var locationArray = window.location.href.split("/");
   var LOCAL_URL = locationArray.splice(0, locationArray.indexOf("preview")).join("/") + "/preview/";
   VIZABI_MODEL = {};
-  EXT_RESOURCES = {};
 
 script(src='assets/js/toolconfigs/' + (tool_config || tool) + '.js')
 script.
@@ -36,14 +35,14 @@ script.
 
   var url = new URLSearchParams(window.location.search);
   var vizabiBranch = url.get('vizabi') || 'develop';
-  var isLocalhost = ~window.location.origin.indexOf('localhost');
+  var isLocalhost = ~window.location.origin.indexOf('localhost') || window.location.port;
   load(
     document.getElementById('vizabi-assets'),
     isLocalhost ? '' : vizabiBranch,
     'vizabi',
     [
-      'dist/vizabi' + (isLocalhost ? '' : '.min') + '.js',
-      'dist/vizabi.css'
+      'vizabi' + (isLocalhost ? '' : '.min') + '.js',
+      'vizabi.css'
     ]
   ).then(function() {
     var tool = window.location.pathname.split('/').slice(-1)[0].split('.')[0];
@@ -52,8 +51,8 @@ script.
       isLocalhost ? '' : url.get('tool') || 'develop',
       'vizabi-' + tool,
       [
-        'dist/' + tool + '.js',
-        'dist/' + tool + '.css'
+        tool + '.js',
+        tool + '.css'
       ]
     );
   }).then(function() {
@@ -61,13 +60,35 @@ script.
     var TOOL = "#{tool}";
     var DESCRIPTION = "#{description}";
 
+    var splashTiming = document.getElementById('vzbp-timing-splash')
+    var fullTiming = document.getElementById('vzbp-timing-full')
+    var dataTiming = document.getElementById('vzbp-timing-data')
+    var totalTiming = document.getElementById('vzbp-timing-total')
+
     VIZABI_MODEL.bind = {
       'ready': function(evt, vals) {
+        var splashTime = timeLogger.snapOnce("SPLASH");
+        splashTime && (splashTiming.innerText = splashTime);
+
+        var fullTime = timeLogger.snapOnce("FULL");
+        fullTime && (fullTiming.innerText = fullTime);
+        timeLogger.add("FULL");
+
+        timeLogger.add("DATA");
+        timeLogger.update("DATA");
+
         updateURL();
         updateStateEditor(VIZ.getModel().state);
       },
       'persistentChange': function(evt) {
         updateURL(true); // force update
+      },
+      'dataLoaded': function() {
+        var dataTime = timeLogger.snapOnce("DATA");
+        dataTime && (dataTiming.innerText = dataTime);
+
+        var totalTime = timeLogger.snapOnce("TOTAL");
+        totalTime && (totalTiming.innerText = totalTime);
       }
     };
 
@@ -117,7 +138,7 @@ script.
     };
 
     //WS reader integration
-    var wsReader = new WSReader.WSReader().getReader();
+    var wsReader = WsReader.WsReader.getReader();
     Vizabi.Reader.extend("waffle", wsReader);
 
     //DDFCSV reader integration
@@ -126,22 +147,17 @@ script.
 
     parseURL();
 
-    EXT_RESOURCES = Vizabi.utils.deepExtend({
-      host: 'https://waffle-server.gapminder.org',
-      preloadPath: '/api/vizabi/',
-      dataPath: '/api/ddf/',
-      shapePath: "data/mc_precomputed_shapes.json"
-    }, EXT_RESOURCES);
-
     VIZABI_MODEL = Vizabi.utils.deepExtend({}, {
       locale: {
-        filePath: '/vizabi' + (!isLocalhost ? ('/' + vizabiBranch) : '') + '/dist/assets/translation/'
+        filePath: '/vizabi' + (!isLocalhost ? ('/' + vizabiBranch) : '') + '/assets/translation/'
       },
       data: #{chart_data}
     }, VIZABI_MODEL);
 
-    Vizabi._globals.ext_resources = EXT_RESOURCES;
     VIZABI_PAGE_MODEL = Vizabi.utils.deepExtend({}, VIZABI_MODEL);
+    delete VIZABI_PAGE_MODEL.bind;
 
-    VIZ = Vizabi("#{tool}", placeholder, Vizabi.utils.deepExtend({}, VIZABI_MODEL, URLI.model));
+    timeLogger.add("TOTAL")
+    timeLogger.add("SPLASH");
+    VIZ = Vizabi("#{tool}", placeholder, Vizabi.utils.deepExtend({}, VIZABI_MODEL, URLI.model, true));
   });

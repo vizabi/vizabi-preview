@@ -1,5 +1,6 @@
+// sass-lint:disable no-ids
 #vzbp-sidebar {
-  color: #666666;
+  color: #666;
   .vzbp-button {
     @include prefixer(border-radius, 2px, webkit moz spec);
     display: inline-block;
@@ -9,9 +10,9 @@
     height: 32px;
     padding: 0 5px;
     font-size: 12px;
-    color: white;
+    color: #fff;
     text-align: center;
-    background: #666666;
+    background: #666;
     border: 0;
     cursor: pointer;
     outline: none;
@@ -20,7 +21,7 @@
       font-size: 16px;
     }
     &:hover {
-      background: #555555;
+      background: #555;
       outline: none;
     }
     &:active {
@@ -28,10 +29,11 @@
       outline: none;
     }
     &.vzbp-wide {
-      width: 67px;
+      width: 70px;
     }
   }
-  select.vzbp-button{
+  // sass-lint:disable no-qualifying-elements
+  select.vzbp-button {
     -webkit-appearance: none;
   }
   hr.vzbp-hr {
@@ -39,19 +41,19 @@
     height: 0;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    margin: 10px 0px;
+    margin: 10px 0;
   }
   .vzbp-subtitle {
     text-transform: uppercase;
     font-size: 11px;
     font-weight: normal;
     color: #999;
-    margin: 0px;
-    padding: 7px 0px;
+    margin: 0;
+    padding: 7px 0;
   }
   p {
-    margin: 0px;
-    padding: 10px 0px 5px;
+    margin: 0;
+    padding: 10px 0 5px;
   }
   .vzbp-input[type="number"] {
     @include prefixer(border-radius, 2px, webkit moz spec);
@@ -62,10 +64,16 @@
     background-color: #f2f2f2;
     &:focus {
       color: #333;
-      background-color: white;
+      background-color: #fff;
     }
   }
   @media screen and (max-width: 500px) {
-    display: none
+    display: none;
+  }
+
+  .vzbp-timing {
+    font-size: 1.7em;
+    font-family: monospace;
+    text-align: center;
   }
 }

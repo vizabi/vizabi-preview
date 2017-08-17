@@ -53,6 +53,14 @@ let VIZABI_MODEL = {
         "syncModels": ["marker_colorlegend"]
       }
     },
+    "marker_allpossible": {
+      "space": ["entities"],
+      "label": {
+          "use": "property",
+          "which": "name"
+      },
+      "skipFilter": true
+    },
     "marker_colorlegend": {
       "space": ["entities_colorlegend"],
       "opacityRegular": 0.8,
@@ -90,8 +98,8 @@ let VIZABI_MODEL = {
     "map": {
       "scale": 1,
       "preserveAspectRatio": true,
-      "mapEngine": "google",
-      "mapStyle": "terrain",
+      "mapEngine": "mapbox",
+      "mapStyle": "mapbox://styles/mapbox/streets-v9",
       "showBubbles": true,
       "showAreas": true,
       "showMap": true,
@@ -122,7 +130,7 @@ let VIZABI_MODEL = {
   },
   "data": {
     reader: 'waffle',
-    path: 'https://waffle-server-dev.gapminderdev.org/api/ddf',
+    path: 'https://waffle-server-dev.gapminderdev.org/api/ddf/ql',
     dataset: 'open-numbers/ddf--sodertorn--stockholm_lan_basomrade'
   }
 };
