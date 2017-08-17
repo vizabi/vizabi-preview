@@ -22,7 +22,10 @@ let VIZABI_MODEL = {
       ],
       size: {
         use: "indicator",
-        which: "amount"
+        which: "amount",
+        allow: {
+          "scales": ["linear"]
+        }
       }
     },
     marker_tags: { space: [], label: {} },
