@@ -65,6 +65,7 @@ var VIZABI_MODEL = {
         "which": "name"
       },
       "axis_y": {
+        "scaleType": "ordinal",
         "use": "property",
         "which": "basomrade",
         "spaceRef": "entities_age",
