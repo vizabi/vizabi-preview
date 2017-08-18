@@ -46,7 +46,7 @@ let VIZABI_MODEL = {
   ui: {
     splash: true,
     chart: {},
-    buttons: ["find", "moreoptions"],
+    buttons: ["find", "moreoptions", "presentation"],
     dialogs: {
       popup: ["timedisplay", "find", "moreoptions"],
       sidebar: ["timedisplay", "find"],
