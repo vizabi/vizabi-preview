@@ -1,49 +1,24 @@
 phase,name,is--phase_from,is--phase_to,color
-agricultural_waste,Agricultural waste,TRUE,TRUE,#ff7f0e
-agriculture,Agriculture,TRUE,TRUE,#2ca02c
-bioconversion,Bio-conversion,TRUE,TRUE,#d62728
-biofuel_imports,Biofuel imports,TRUE,TRUE,#9467bd
-biomass_imports,Biomass imports,TRUE,TRUE,#8c564b
-coal,Coal,TRUE,TRUE,#e377c2
-coal_imports,Coal imports,TRUE,TRUE,#e377c2
-coal_reserves,Coal reserves,TRUE,TRUE,#e377c2
-district_heating,District heating,TRUE,TRUE,#7f7f7f
-domestic_aviation,Domestic aviation,TRUE,TRUE,#bcbd22
-electricity_grid,Electricity grid,TRUE,TRUE,#17becf
-gas,Gas,TRUE,TRUE,#1f77b4
-gas_imports,Gas imports,TRUE,TRUE,#1f77b4
-gas_reserves,Gas reserves,TRUE,TRUE,#1f77b4
-geothermal,Geothermal,TRUE,TRUE,#ff7f0e
-h2,H2,TRUE,TRUE,#2ca02c
-h2_conversion,H2 conversion,TRUE,TRUE,#2ca02c
-heating_and_cooling_commercial,Heating and cooling - commercial,TRUE,TRUE,#d62728
-heating_and_cooling_homes,Heating and cooling - homes,TRUE,TRUE,#d62728
-hydro,Hydro,TRUE,TRUE,#9467bd
-industry,Industry,TRUE,TRUE,#8c564b
-international_aviation,International aviation,TRUE,TRUE,#e377c2
-international_shipping,International shipping,TRUE,TRUE,#e377c2
-lighting_and_appliances_commercial,Lighting & appliances - commercial,TRUE,TRUE,#7f7f7f
-lighting_and_appliances_homes,Lighting & appliances - homes,TRUE,TRUE,#7f7f7f
-liquid,Liquid,TRUE,TRUE,#bcbd22
-losses,Losses,TRUE,TRUE,#17becf
-marine_algae,Marine algae,TRUE,TRUE,#1f77b4
-national_navigation,National navigation,TRUE,TRUE,#ff7f0e
-ngas,Ngas,TRUE,TRUE,#2ca02c
-nuclear,Nuclear,TRUE,TRUE,#d62728
-oil,Oil,TRUE,TRUE,#9467bd
-oil_imports,Oil imports,TRUE,TRUE,#9467bd
-oil_reserves,Oil reserves,TRUE,TRUE,#9467bd
-other_waste,Other waste,TRUE,TRUE,#8c564b
-over_generation_and_exports,Over generation / exports,TRUE,TRUE,#e377c2
-pumped_heat,Pumped heat,TRUE,TRUE,#7f7f7f
-rail_transport,Rail transport,TRUE,TRUE,#bcbd22
-road_transport,Road transport,TRUE,TRUE,#17becf
-solar,Solar,TRUE,TRUE,#1f77b4
-solar_pv,Solar PV,TRUE,TRUE,#1f77b4
-solar_thermal,Solar Thermal,TRUE,TRUE,#1f77b4
-solid,Solid,TRUE,TRUE,#ff7f0e
-thermal_generation,Thermal generation,TRUE,TRUE,#2ca02c
-tidal,Tidal,TRUE,TRUE,#d62728
-uk_land_based_bioenergy,UK land based bioenergy,TRUE,TRUE,#9467bd
-wave,Wave,TRUE,TRUE,#8c564b
-wind,Wind,TRUE,TRUE,#e377c2
+coal_peat_and_oil_shale,"Coal, peat and oil shale",TRUE,TRUE,#ff7f0e
+crude_ngl_and_feed_stocks,Crude Oil,TRUE,TRUE,#2ca02c
+oil_products,Oil Products,TRUE,TRUE,#d62728
+natural_gas,Natural Gas,TRUE,TRUE,#9467bd
+nuclear,Nuclear,TRUE,TRUE,#8c564b
+renewables_and_waste,Renewables and Waste,TRUE,TRUE,#e377c2
+electricity,Electricity,TRUE,TRUE,#7f7f7f
+heat,Heat,TRUE,TRUE,#bcbd22
+fossil_fuels,Fossil Fuls,TRUE,TRUE,#17becf
+renewable_sources,Renewable Resources,TRUE,TRUE,#1f77b4
+chp_plants_ktoe,CHP Plants,TRUE,TRUE,#ff7f0e
+electricity_output_gwh,Electricity Output,TRUE,TRUE,#2ca02c
+electricity_plants_ktoe,Electricity Plants,TRUE,TRUE,#d62728
+exports_ktoe,Exports,TRUE,TRUE,#9467bd
+heat_plants_ktoe,Heat,TRUE,TRUE,#8c564b
+imports_ktoe,Imports,TRUE,TRUE,#e377c2
+industry_ktoe,Industry,TRUE,TRUE,#7f7f7f
+of_which_commerce_and_public_services_ktoe,Commerce,TRUE,TRUE,#bcbd22
+of_which_residential_ktoe,Residential,TRUE,TRUE,#17becf
+oil_refineries_transformation_ktoe,Oil Refineries,TRUE,TRUE,#1f77b4
+other_ktoe,Other,TRUE,TRUE,#ff7f0e
+production_ktoe,Production,TRUE,TRUE,#2ca02c
+transport_ktoe,Transport,TRUE,TRUE,#d62728
