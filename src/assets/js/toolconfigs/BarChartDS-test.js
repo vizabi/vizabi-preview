@@ -28,8 +28,7 @@ var VIZABI_MODEL = {
     },
     "entities_age": {
       "dim": "basomrade",
-      "show": {},
-      "grouping": 1
+      "show": {}
     },
     "entities_side": {
       "dim": "gender",
