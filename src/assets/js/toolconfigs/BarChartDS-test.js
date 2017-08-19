@@ -91,7 +91,7 @@ var VIZABI_MODEL = {
       }
     },
     "entities_allpossible": {
-      "dim": "world_4region"
+      "dim": "basomrade"
     },
     "marker_allpossible": {
       "space": ["entities_allpossible"],
