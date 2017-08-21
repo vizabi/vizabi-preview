@@ -53,6 +53,14 @@ let VIZABI_MODEL = {
         "syncModels": ["marker_colorlegend"]
       }
     },
+    "marker_allpossible": {
+      "space": ["entities"],
+      "label": {
+          "use": "property",
+          "which": "name"
+      },
+      "skipFilter": true
+    },
     "marker_colorlegend": {
       "space": ["entities_colorlegend"],
       "opacityRegular": 0.8,
@@ -110,7 +118,7 @@ let VIZABI_MODEL = {
       },
       "projection": "mercator",
       "topology": {
-        "path": "data/sodertorn-kommun.json",
+        "path": "assets/sodertorn-kommun.json",
         "objects": {
           "geo": "SWE_adm2",
           "boundaries": "SWE_adm2"
@@ -122,7 +130,8 @@ let VIZABI_MODEL = {
   },
   "data": {
     reader: 'waffle',
-    path: 'https://waffle-server-dev.gapminderdev.org/api/ddf',
-    dataset: 'open-numbers/ddf--sodertorn--stockholm_lan_basomrade'
+    path: 'https://waffle-server-dev.gapminderdev.org/api/ddf/ql',
+    dataset: 'open-numbers/ddf--sodertorn--stockholm_lan_basomrade',
+    assetsPath: 'https://import-waffle-server-dev.gapminderdev.org/api/ddf/assets/'
   }
 };
