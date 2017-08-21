@@ -118,7 +118,7 @@ let VIZABI_MODEL = {
       },
       "projection": "mercator",
       "topology": {
-        "path": "data/sodertorn-basomr2010.json",
+        "path": "assets/sodertorn-basomr2010.json",
         "objects": {
           "geo": "c1e171fae817c0bfc26dc7df82219e08",
           "boundaries": "c1e171fae817c0bfc26dc7df82219e08"
@@ -131,6 +131,7 @@ let VIZABI_MODEL = {
   "data": {
     reader: 'waffle',
     path: 'https://waffle-server-dev.gapminderdev.org/api/ddf/ql',
-    dataset: 'open-numbers/ddf--sodertorn--stockholm_lan_basomrade'
+    dataset: 'open-numbers/ddf--sodertorn--stockholm_lan_basomrade',
+    assetsPath: 'https://import-waffle-server-dev.gapminderdev.org/api/ddf/assets/'
   }
 };
