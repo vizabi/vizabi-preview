@@ -26,10 +26,6 @@ var VIZABI_MODEL = {
     "entities_colorlegend": {
       "dim": "geo"
     },
-    "entities_age": {
-      "dim": "basomrade",
-      "show": {}
-    },
     "entities_side": {
       "dim": "gender",
       "show": {
@@ -40,14 +36,14 @@ var VIZABI_MODEL = {
       "skipFilter": true
     },
     "marker_order": {
-      "space": ["entities_age", "time"],
+      "space": ["entities_allpossible", "time"],
       "hook_order": {
         "use": "indicator",
         "which": "share_emigration_min_3_years_of_higher_education_aged_25_64"
       }
     },
     "marker": {
-      "space": ["entities", "time", "entities_side", "entities_age", "entities_geodomain"],
+      "space": ["entities", "time", "entities_side", "entities_allpossible", "entities_geodomain"],
       "label_stack": {
         "use": "property",
         "spaceRef": "entities",
@@ -60,14 +56,14 @@ var VIZABI_MODEL = {
       },
       "label_age": {
         "use": "property",
-        "spaceRef": "entities_age",
+        "spaceRef": "entities_allpossible",
         "which": "name"
       },
       "axis_y": {
         "scaleType": "ordinal",
         "use": "property",
         "which": "basomrade",
-        "spaceRef": "entities_age",
+        "spaceRef": "entities_allpossible",
         "_important": false
       },
       "axis_x": {
@@ -76,7 +72,7 @@ var VIZABI_MODEL = {
       },
       "color": {
         "use": "indicator",
-        "which": "emigration_min_3_years_of_higher_education_aged_25_64_gender",
+        "which": "share_emigration_min_3_years_of_higher_education_aged_25_64",
         "spaceRef": "entities",
         "syncModels": ["marker_colorlegend"]
       },
