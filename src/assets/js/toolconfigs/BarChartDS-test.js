@@ -43,7 +43,7 @@ var VIZABI_MODEL = {
       "space": ["entities_age", "time"],
       "hook_order": {
         "use": "indicator",
-        "which": "higher_education_min_3_years_percent_of_population_aged_25_64"
+        "which": "share_emigration_min_3_years_of_higher_education_aged_25_64"
       }
     },
     "marker": {
@@ -72,11 +72,11 @@ var VIZABI_MODEL = {
       },
       "axis_x": {
         "use": "indicator",
-        "which": "mean_income_aged_lt_20"
+        "which": "mean_income_aged_gt_20"
       },
       "color": {
         "use": "indicator",
-        "which": "higher_education_min_3_years_percent_of_population_aged_25_64",
+        "which": "emigration_min_3_years_of_higher_education_aged_25_64_gender",
         "spaceRef": "entities",
         "syncModels": ["marker_colorlegend"]
       },
@@ -124,11 +124,19 @@ var VIZABI_MODEL = {
         "which": "shape_lores_svg"
       }
     },
-    "entities_tags": { },
+    "entities_tags": {
+      "dim": "tag"
+    },
     "marker_tags": {
       "space": ["entities_tags"],
-      "label": {},
-      "hook_parent": {}
+      "label": {
+        "use": "property",
+        "which": "name"
+      },
+      "hook_parent": {
+        "use": "property",
+        "which": "parent"
+      }
     }
   },
   "ui": {
@@ -137,7 +145,6 @@ var VIZABI_MODEL = {
   "data": {
     reader: 'waffle',
     path: 'https://waffle-server-dev.gapminderdev.org/api/ddf/ql',
-    //dataset: 'open-numbers/ddf--sodertorn--stockholm_lan_basomrade#multidimensional'
-    dataset: 'angieskazka/ddf--sodertorn--stockholm_lan_basomrade'
+    dataset: 'open-numbers/ddf--sodertornsmodellen'
   }
 }

@@ -41,9 +41,9 @@ let VIZABI_MODEL = {
         }
       },
       "color": {
-        "use": "property",
-        "which": "municipality",
-        "scaleType": "ordinal",
+        "use": "indicator",
+        "which": "mean_income_aged_gt_20",
+        "scaleType": "log",
         "syncModels": ["marker_colorlegend"]
       },
       "color_map": {
@@ -99,9 +99,9 @@ let VIZABI_MODEL = {
       "scale": 1,
       "preserveAspectRatio": true,
       "mapEngine": "mapbox",
-      "mapStyle": "mapbox://styles/mapbox/streets-v9",
+      "mapStyle": "mapbox://styles/mapbox/light-v9",
       "showBubbles": true,
-      "showAreas": true,
+      "showAreas": false,
       "showMap": true,
       "offset": {
         "top": 0.05,
@@ -111,10 +111,10 @@ let VIZABI_MODEL = {
       },
       "path": null,
       "bounds": {
-        "north": 60.25,
-        "west": 17.4,
-        "south": 58.7,
-        "east": 19.6
+        "north": 59.48,
+        "west": 17.72,
+        "south": 59.21,
+        "east": 18.32
       },
       "projection": "mercator",
       "topology": {
@@ -131,7 +131,7 @@ let VIZABI_MODEL = {
   "data": {
     reader: 'waffle',
     path: 'https://waffle-server-dev.gapminderdev.org/api/ddf/ql',
-    dataset: 'open-numbers/ddf--sodertorn--stockholm_lan_basomrade',
+    dataset: 'open-numbers/ddf--sodertornsmodellen',
     assetsPath: 'https://import-waffle-server-dev.gapminderdev.org/api/ddf/assets/'
   }
 };
