@@ -18,17 +18,18 @@ var VIZABI_MODEL = {
       "dim": "tag"
     },
     "marker": {
+      "opacityRegular": 0.6,
       "space": ["entities", "time"],
       "label": {
         "use": "property",
         "which": "name"
       },
       "axis_y": {
-        "which": "higher_education_min_3_years_percent_of_population_aged_25_64",
+        "which": "educational_level_higher_education_min_3_years_aged_25_64_female",
         "use": "indicator"
       },
       "axis_x": {
-        "which": "mean_income_aged_lt_20",
+        "which": "mean_income_aged_gt_20",
         "use": "indicator",
         "scaleType": "log"
       },
@@ -36,7 +37,9 @@ var VIZABI_MODEL = {
         "which": "population_20xx_12_31",
         "use": "indicator",
         "scaleType": "linear",
-        "extent": [0, 0.4],
+        "extent": [0, 1],
+        "domainMin": 150,
+        "domainMax": 900000,
         "allow": {
           "scales": ["linear"]
         }
@@ -88,7 +91,7 @@ var VIZABI_MODEL = {
   "data": {
     reader: 'waffle',
     path: 'https://waffle-server-dev.gapminderdev.org/api/ddf/ql',
-    dataset: 'open-numbers/ddf--sodertorn--stockholm_lan_basomrade'
+    dataset: 'open-numbers/ddf--sodertornsmodellen'
   },
   "ui": {
     "datawarning": {
@@ -96,6 +99,7 @@ var VIZABI_MODEL = {
       "doubtRange": [0, 0]
     },
     "chart": {
+      "maxRadiusEm": 0.15, 
       "labels": {"removeLabelBox": true},
       "trails": false
     },
