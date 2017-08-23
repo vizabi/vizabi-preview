@@ -12,7 +12,7 @@ var VIZABI_MODEL = {
       "dim": "year"
     },
     "entities": {
-      "dim": null
+      "dim": null,
     },
     "entities_geodomain": {
       "dim": "basomrade",
@@ -39,7 +39,7 @@ var VIZABI_MODEL = {
       "space": ["entities_allpossible", "time"],
       "hook_order": {
         "use": "indicator",
-        "which": "share_emigration_min_3_years_of_higher_education_aged_25_64"
+        "which": "post_secondary_education_min_3_years_aged_25_64"
       }
     },
     "marker": {
@@ -72,8 +72,18 @@ var VIZABI_MODEL = {
       },
       "color": {
         "use": "indicator",
-        "which": "share_emigration_min_3_years_of_higher_education_aged_25_64",
+        "which": "post_secondary_education_min_3_years_aged_25_64",
         "spaceRef": "entities",
+        "palette": {
+        "0": "hsl(270, 80%, 55%)",
+        "12": "hsl(202, 80%, 55%)",
+        "25": "hsl(135, 80%, 55%)",
+        "37": "hsl(48, 80%, 55%)",
+        "50": "hsl(355, 80%, 65%)",
+        "75": "hsl(302, 70%, 65%)",
+        "100": "hsl(302, 70%, 91%)",
+        "_default": "#ffb600"
+        },
         "syncModels": ["marker_colorlegend"]
       },
       "side": {
@@ -141,6 +151,6 @@ var VIZABI_MODEL = {
   "data": {
     reader: 'waffle',
     path: 'https://waffle-server-dev.gapminderdev.org/api/ddf/ql',
-    dataset: 'open-numbers/ddf--sodertornsmodellen'
+    dataset: 'open-numbers/ddf--sodertornsmodellen#develop'
   }
 }
