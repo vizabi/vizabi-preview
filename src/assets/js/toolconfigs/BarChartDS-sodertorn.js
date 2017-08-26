@@ -12,13 +12,13 @@ var VIZABI_MODEL = {
       "dim": "year"
     },
     "entities": {
-      "dim": null,
+      "dim": "basomrade",
+      "show": {}
     },
     "entities_geodomain": {
       "dim": "basomrade",
       "show": {
         "basomrade": {
-          "$in": ["world"]
         }
       },
       "skipFilter": true
@@ -36,14 +36,14 @@ var VIZABI_MODEL = {
       "skipFilter": true
     },
     "marker_order": {
-      "space": ["entities_allpossible", "time"],
+      "space": ["entities", "time"],
       "hook_order": {
         "use": "indicator",
         "which": "post_secondary_education_min_3_years_aged_25_64"
       }
     },
     "marker": {
-      "space": ["entities", "time", "entities_side", "entities_allpossible", "entities_geodomain"],
+      "space": ["entities", "time", "entities_side", "entities_geodomain"],
       "label_stack": {
         "use": "property",
         "spaceRef": "entities",
@@ -54,16 +54,11 @@ var VIZABI_MODEL = {
         "spaceRef": "entities_side",
         "which": "name"
       },
-      "label_age": {
-        "use": "property",
-        "spaceRef": "entities_allpossible",
-        "which": "name"
-      },
       "axis_y": {
         "scaleType": "ordinal",
         "use": "property",
         "which": "basomrade",
-        "spaceRef": "entities_allpossible",
+        "spaceRef": "entities",
         "_important": false
       },
       "axis_x": {
