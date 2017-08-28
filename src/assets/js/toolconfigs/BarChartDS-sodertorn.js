@@ -63,7 +63,12 @@ var VIZABI_MODEL = {
       },
       "axis_x": {
         "use": "indicator",
-        "which": "mean_income_aged_gt_20"
+        "which": "mean_income_aged_gt_20",
+        "allow": {
+          "scales": ["linear"],
+          "namesOnlyThese": true,
+          "names": ["mean_income_aged_gt_20","median_income_aged_gt_20"]
+        }
       },
       "color": {
         "use": "indicator",
