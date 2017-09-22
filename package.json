@@ -7,7 +7,8 @@
     "link": "npm run all npm link",
     "start": "webpack-dev-server --progress",
     "build": "cross-env NODE_ENV=production webpack --progress",
-    "all": "node all.js"
+    "all": "node all.js",
+    "testcsvreader": "node ./tests/csvreader.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
     "vizabi-ws-reader": "2.0.2"
   },
   "devDependencies": {
+    "puppeteer": "^0.10.2",
     "autoprefixer": "^7.1.4",
     "bourbon": "^4.3.4",
     "clean-webpack-plugin": "^0.1.16",
