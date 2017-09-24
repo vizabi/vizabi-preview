@@ -10,4 +10,5 @@ module.exports  = [
   'vizabi-bubblemap',
   'vizabi-barchart-ds',
   'vizabi-sankey',
+  'vizabi-spreadsheet',
 ];
