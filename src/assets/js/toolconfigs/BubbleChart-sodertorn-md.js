@@ -14,9 +14,6 @@ var VIZABI_MODEL = {
     "entities_gender": {
       "dim": "gender"      
     },
-    "entities_age": {
-      "dim": "basomrade"      
-    },
     "entities_colorlegend": {
       "dim": "municipality"
     },
