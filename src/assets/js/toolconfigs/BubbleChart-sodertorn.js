@@ -78,14 +78,6 @@ var VIZABI_MODEL = {
         "use": "property",
         "which": "parent"
       }
-    },
-    "marker_allpossible": {
-      "space": ["entities"],
-      "label": {
-        "use": "property",
-        "which": "name"
-      },
-      "skipFilter": true
     }
   },
   "data": {
@@ -105,16 +97,13 @@ var VIZABI_MODEL = {
     },
     "splash": true,
     "dialogs": {
-      "popup": ["colors", "show", "find", "size", "zoom", "moreoptions"],
+      "popup": ["colors", "find", "size", "zoom", "moreoptions"],
       "dialog": {
-        "show": {
-          enablePicker: true
-        },
         "find": {
           enablePicker: true
         }
       }
     },
-    "buttons": ["colors", "show", "find", "trails", "lock", "moreoptions", "fullscreen", "presentation"]
+    "buttons": ["colors", "find", "trails", "lock", "moreoptions", "fullscreen", "presentation"]
   }
 };
