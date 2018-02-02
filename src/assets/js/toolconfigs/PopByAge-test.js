@@ -10,6 +10,13 @@ var VIZABI_MODEL = {
     },
     "entities": {
       "dim": "geo",
+      "filter": {
+         "$or": [
+           {"un_state": true},
+           {"is--global": true},
+           {"is--world_4region": true}
+         ]
+      },
       "show": {
         "geo": {
           "$in": ["world"]
@@ -86,27 +93,6 @@ var VIZABI_MODEL = {
         "allow": {
           "scales": ["ordinal"]
         }
-      }
-    },
-    "entities_allpossible": {
-      "dim": "geo",
-       "show": {
-         "$or": [
-           {"is--country": true},
-           {"is--global": true},
-           {"is--world_4region": true}
-         ]
-      }
-    },
-    "marker_allpossible": {
-      "space": ["entities_allpossible"],
-      "label": {
-        "use": "property",
-        "which": "name"
-      },
-      "color": {
-        "use": "property",
-        "which": "world_4region"
       }
     },
     "entities_allpossibleside": {
