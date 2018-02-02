@@ -1,7 +1,9 @@
 const shell = require('shelljs');
 
-
-const command = process.argv.slice(2).join(' ').trim();
+let command = process.argv.slice(2).join(' ').trim();
+if (command == "ncu" && process.env.npm_config_u) command = "ncu -u";
+if (command == "ncu" && process.env.npm_config_a) command = "ncu -a";
+if (command == "git commit" && process.env.npm_config_message) command = 'git commit -m "' + process.env.npm_config_message + '"';
 
 const packages = require('./packages').concat(!command.startsWith('git push') ? 'vizabi-preview' : []);
 
