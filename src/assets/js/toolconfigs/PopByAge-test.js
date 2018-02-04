@@ -2,60 +2,85 @@ var VIZABI_MODEL = {
   "state": {
     "time": {
       "step": 1,
+      "value": 2017,
       "delayThresholdX2": 0,
       "delayThresholdX4": 0,
       "immediatePlay": true,
       "delay": 200,
       "dim": "year"
     },
+    
+    
+    
+    
+    
+    
+    
     "entities": {
-      "dim": "geo",
+      "dim": "region",
       "filter": {
-         "$or": [
-           {"un_state": true},
-           {"is--global": true},
-           {"is--world_4region": true}
-         ]
       },
-      "show": {
-        "geo": {
-          "$in": ["world"]
-        }
-      }
+      "show": {region: {"$in": ["west_bank"]}}
     },
+    
+        entities_loctype: {
+            dim: "locality_type"
+        },
+        entities_education_level: {
+            dim: "education"
+        },
+        entities_age_group: {
+            dim: "age_group"
+        },
+    
     "entities_geodomain": {
-      "dim": "geo",
-      "show": {
-        "geo": {
-          "$in": ["world"]
-        }
+      "dim": "region",
+      "filter": {
       },
-      "skipFilter": true
+      "show": {region: {"$in": ["west_bank"]}}
     },
     "entities_colorlegend": {
-      "dim": "geo"
+      "dim": "region"
     },
     "entities_age": {
       "dim": "age",
       "show": {
         "age": {
-          "$nin": ["80plus","100plus"]
+          "$nin": ["not_stated","all_ages"]
         }
       },
       "grouping": 1
     },
     "entities_side": {
-      "show": {},
-      "dim": null,
+      "show": {gender: {"$in": ["male"]}},
+      "dim": "gender",
       "skipFilter": true
     },
     "marker": {
-      "space": ["entities", "time", "entities_side", "entities_age", "entities_geodomain"],
+      "space": [
+        "entities", 
+        "time", 
+        "entities_loctype",
+        "entities_education_level",
+        "entities_age_group",
+        "entities_side", 
+        "entities_age", 
+        "entities_geodomain"
+      ],
       "label_stack": {
         "use": "property",
         "spaceRef": "entities",
         "which": "name"
       },
+      
+          hook_entities_loctype: {which: "name", use: "property", spaceRef: "entities_loctype"},
+          hook_entities_education_level: {which: "name", use: "property", spaceRef: "entities_education_level"},
+          hook_entities_age_group: {which: "name", use: "property", spaceRef: "entities_age_group"},
+      
+      
+      
+      
+      
       "label_side": {
         "use": "property",
         "spaceRef": "entities_side",
@@ -71,11 +96,11 @@ var VIZABI_MODEL = {
       },
       "axis_x": {
         "use": "indicator",
-        "which": "population"
+        "which": "total_population"
       },
       "color": {
         "use": "property",
-        "which": "world_4region",
+        "which": "region",
         "scaleType": "ordinal",
         "spaceRef": "entities",
         "allow": {
@@ -95,9 +120,10 @@ var VIZABI_MODEL = {
         }
       }
     },
+    
     "entities_allpossibleside": {
       "show": {},
-      "dim": null,
+      "dim": "gender",
       "skipFilter": false
     },
     "marker_allpossibleside": {
@@ -106,7 +132,9 @@ var VIZABI_MODEL = {
         "use": "property",
         "which": "name"
       }
-    },
+    },    
+    
+    
     "marker_colorlegend": {
       "space": ["entities_colorlegend"],
       "label": {
@@ -130,6 +158,6 @@ var VIZABI_MODEL = {
     }
   },
   "ui": {
-    "splash": true
+    "splash": false
   }
 }
