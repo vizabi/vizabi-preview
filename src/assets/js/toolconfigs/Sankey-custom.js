@@ -28,7 +28,6 @@ let VIZABI_MODEL = {
         }
       }
     },
-    marker_tags: { space: [], label: {} },
     marker: {
       space: ["entities"],
       label: {
@@ -41,16 +40,5 @@ let VIZABI_MODEL = {
         scaleType: "ordinal"
       }
     },
-  },
-  locale: { id: "en" },
-  ui: {
-    splash: true,
-    chart: {},
-    buttons: ["find", "moreoptions", "presentation"],
-    dialogs: {
-      popup: ["timedisplay", "find", "moreoptions"],
-      sidebar: ["timedisplay", "find"],
-      moreoptions: ["speed", "about"]
-    }
   }
 };
