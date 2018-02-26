@@ -1,0 +1,779 @@
+{
+  "name": "ddf--pcbs--migration",
+  "title": "ddf--pcbs--migration",
+  "description": "",
+  "version": "0.0.1",
+  "language": {
+    "id": "en",
+    "name": "English"
+  },
+  "translations": [],
+  "license": "",
+  "author": "",
+  "resources": [
+    {
+      "path": "ddf--concepts.csv",
+      "name": "ddf--concepts",
+      "schema": {
+        "fields": [
+          {
+            "name": "concept"
+          },
+          {
+            "name": "name"
+          },
+          {
+            "name": "concept_type"
+          },
+          {
+            "name": "domain"
+          }
+        ],
+        "primaryKey": "concept"
+      }
+    },
+    {
+      "path": "ddf--datapoints--amount__close_to_the_wall--by--phase_from--phase_to--year.csv",
+      "name": "amount__close_to_the_wall--by--phase_from--phase_to--year",
+      "schema": {
+        "fields": [
+          {
+            "name": "phase_from"
+          },
+          {
+            "name": "phase_to"
+          },
+          {
+            "name": "year"
+          },
+          {
+            "name": "amount__close_to_the_wall"
+          }
+        ],
+        "primaryKey": [
+          "phase_from",
+          "phase_to",
+          "year"
+        ]
+      }
+    },
+    {
+      "path": "ddf--datapoints--amount__from_camps--by--phase_from--phase_to--year.csv",
+      "name": "amount__from_camps--by--phase_from--phase_to--year",
+      "schema": {
+        "fields": [
+          {
+            "name": "phase_from"
+          },
+          {
+            "name": "phase_to"
+          },
+          {
+            "name": "year"
+          },
+          {
+            "name": "amount__from_camps"
+          }
+        ],
+        "primaryKey": [
+          "phase_from",
+          "phase_to",
+          "year"
+        ]
+      }
+    },
+    {
+      "path": "ddf--datapoints--amount__locality_type--by--phase_from--phase_to--year.csv",
+      "name": "amount__locality_type--by--phase_from--phase_to--year",
+      "schema": {
+        "fields": [
+          {
+            "name": "phase_from"
+          },
+          {
+            "name": "phase_to"
+          },
+          {
+            "name": "year"
+          },
+          {
+            "name": "amount__locality_type"
+          }
+        ],
+        "primaryKey": [
+          "phase_from",
+          "phase_to",
+          "year"
+        ]
+      }
+    },
+    {
+      "path": "ddf--datapoints--amount__loctype_to_region4--by--phase_from--phase_to--year.csv",
+      "name": "amount__loctype_to_region4--by--phase_from--phase_to--year",
+      "schema": {
+        "fields": [
+          {
+            "name": "phase_from"
+          },
+          {
+            "name": "phase_to"
+          },
+          {
+            "name": "year"
+          },
+          {
+            "name": "amount__loctype_to_region4"
+          }
+        ],
+        "primaryKey": [
+          "phase_from",
+          "phase_to",
+          "year"
+        ]
+      }
+    },
+    {
+      "path": "ddf--datapoints--amount__region4--by--phase_from--phase_to--year.csv",
+      "name": "amount__region4--by--phase_from--phase_to--year",
+      "schema": {
+        "fields": [
+          {
+            "name": "phase_from"
+          },
+          {
+            "name": "phase_to"
+          },
+          {
+            "name": "year"
+          },
+          {
+            "name": "amount__region4"
+          }
+        ],
+        "primaryKey": [
+          "phase_from",
+          "phase_to",
+          "year"
+        ]
+      }
+    },
+    {
+      "path": "ddf--datapoints--amount__region4_no_self--by--phase_from--phase_to--year.csv",
+      "name": "amount__region4_no_self--by--phase_from--phase_to--year",
+      "schema": {
+        "fields": [
+          {
+            "name": "phase_from"
+          },
+          {
+            "name": "phase_to"
+          },
+          {
+            "name": "year"
+          },
+          {
+            "name": "amount__region4_no_self"
+          }
+        ],
+        "primaryKey": [
+          "phase_from",
+          "phase_to",
+          "year"
+        ]
+      }
+    },
+    {
+      "path": "ddf--entities--phase.csv",
+      "name": "phase",
+      "schema": {
+        "fields": [
+          {
+            "name": "phase"
+          },
+          {
+            "name": "name"
+          },
+          {
+            "name": "is--phase_from"
+          },
+          {
+            "name": "is--phase_to"
+          },
+          {
+            "name": "color"
+          },
+          {
+            "name": "rank"
+          }
+        ],
+        "primaryKey": "phase"
+      }
+    }
+  ],
+  "ddfSchema": {
+    "datapoints": [
+      {
+        "primaryKey": [
+          "phase",
+          "phase",
+          "year"
+        ],
+        "value": "amount__close_to_the_wall",
+        "resources": [
+          "amount__close_to_the_wall--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase",
+          "phase",
+          "year"
+        ],
+        "value": "amount__from_camps",
+        "resources": [
+          "amount__from_camps--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase",
+          "phase",
+          "year"
+        ],
+        "value": "amount__locality_type",
+        "resources": [
+          "amount__locality_type--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase",
+          "phase",
+          "year"
+        ],
+        "value": "amount__loctype_to_region4",
+        "resources": [
+          "amount__loctype_to_region4--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase",
+          "phase",
+          "year"
+        ],
+        "value": "amount__region4",
+        "resources": [
+          "amount__region4--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase",
+          "phase",
+          "year"
+        ],
+        "value": "amount__region4_no_self",
+        "resources": [
+          "amount__region4_no_self--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase",
+          "phase_from",
+          "year"
+        ],
+        "value": "amount__close_to_the_wall",
+        "resources": [
+          "amount__close_to_the_wall--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase",
+          "phase_from",
+          "year"
+        ],
+        "value": "amount__from_camps",
+        "resources": [
+          "amount__from_camps--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase",
+          "phase_from",
+          "year"
+        ],
+        "value": "amount__locality_type",
+        "resources": [
+          "amount__locality_type--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase",
+          "phase_from",
+          "year"
+        ],
+        "value": "amount__loctype_to_region4",
+        "resources": [
+          "amount__loctype_to_region4--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase",
+          "phase_from",
+          "year"
+        ],
+        "value": "amount__region4",
+        "resources": [
+          "amount__region4--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase",
+          "phase_from",
+          "year"
+        ],
+        "value": "amount__region4_no_self",
+        "resources": [
+          "amount__region4_no_self--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase",
+          "phase_to",
+          "year"
+        ],
+        "value": "amount__close_to_the_wall",
+        "resources": [
+          "amount__close_to_the_wall--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase",
+          "phase_to",
+          "year"
+        ],
+        "value": "amount__from_camps",
+        "resources": [
+          "amount__from_camps--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase",
+          "phase_to",
+          "year"
+        ],
+        "value": "amount__locality_type",
+        "resources": [
+          "amount__locality_type--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase",
+          "phase_to",
+          "year"
+        ],
+        "value": "amount__loctype_to_region4",
+        "resources": [
+          "amount__loctype_to_region4--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase",
+          "phase_to",
+          "year"
+        ],
+        "value": "amount__region4",
+        "resources": [
+          "amount__region4--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase",
+          "phase_to",
+          "year"
+        ],
+        "value": "amount__region4_no_self",
+        "resources": [
+          "amount__region4_no_self--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_from",
+          "phase_from",
+          "year"
+        ],
+        "value": "amount__close_to_the_wall",
+        "resources": [
+          "amount__close_to_the_wall--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_from",
+          "phase_from",
+          "year"
+        ],
+        "value": "amount__from_camps",
+        "resources": [
+          "amount__from_camps--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_from",
+          "phase_from",
+          "year"
+        ],
+        "value": "amount__locality_type",
+        "resources": [
+          "amount__locality_type--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_from",
+          "phase_from",
+          "year"
+        ],
+        "value": "amount__loctype_to_region4",
+        "resources": [
+          "amount__loctype_to_region4--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_from",
+          "phase_from",
+          "year"
+        ],
+        "value": "amount__region4",
+        "resources": [
+          "amount__region4--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_from",
+          "phase_from",
+          "year"
+        ],
+        "value": "amount__region4_no_self",
+        "resources": [
+          "amount__region4_no_self--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_from",
+          "phase_to",
+          "year"
+        ],
+        "value": "amount__close_to_the_wall",
+        "resources": [
+          "amount__close_to_the_wall--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_from",
+          "phase_to",
+          "year"
+        ],
+        "value": "amount__from_camps",
+        "resources": [
+          "amount__from_camps--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_from",
+          "phase_to",
+          "year"
+        ],
+        "value": "amount__locality_type",
+        "resources": [
+          "amount__locality_type--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_from",
+          "phase_to",
+          "year"
+        ],
+        "value": "amount__loctype_to_region4",
+        "resources": [
+          "amount__loctype_to_region4--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_from",
+          "phase_to",
+          "year"
+        ],
+        "value": "amount__region4",
+        "resources": [
+          "amount__region4--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_from",
+          "phase_to",
+          "year"
+        ],
+        "value": "amount__region4_no_self",
+        "resources": [
+          "amount__region4_no_self--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_to",
+          "phase_to",
+          "year"
+        ],
+        "value": "amount__close_to_the_wall",
+        "resources": [
+          "amount__close_to_the_wall--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_to",
+          "phase_to",
+          "year"
+        ],
+        "value": "amount__from_camps",
+        "resources": [
+          "amount__from_camps--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_to",
+          "phase_to",
+          "year"
+        ],
+        "value": "amount__locality_type",
+        "resources": [
+          "amount__locality_type--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_to",
+          "phase_to",
+          "year"
+        ],
+        "value": "amount__loctype_to_region4",
+        "resources": [
+          "amount__loctype_to_region4--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_to",
+          "phase_to",
+          "year"
+        ],
+        "value": "amount__region4",
+        "resources": [
+          "amount__region4--by--phase_from--phase_to--year"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_to",
+          "phase_to",
+          "year"
+        ],
+        "value": "amount__region4_no_self",
+        "resources": [
+          "amount__region4_no_self--by--phase_from--phase_to--year"
+        ]
+      }
+    ],
+    "entities": [
+      {
+        "primaryKey": [
+          "phase"
+        ],
+        "value": "color",
+        "resources": [
+          "phase"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase"
+        ],
+        "value": "is--phase_from",
+        "resources": [
+          "phase"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase"
+        ],
+        "value": "is--phase_to",
+        "resources": [
+          "phase"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase"
+        ],
+        "value": "name",
+        "resources": [
+          "phase"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase"
+        ],
+        "value": "rank",
+        "resources": [
+          "phase"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_from"
+        ],
+        "value": "color",
+        "resources": [
+          "phase"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_from"
+        ],
+        "value": "is--phase_from",
+        "resources": [
+          "phase"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_from"
+        ],
+        "value": "is--phase_to",
+        "resources": [
+          "phase"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_from"
+        ],
+        "value": "name",
+        "resources": [
+          "phase"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_from"
+        ],
+        "value": "rank",
+        "resources": [
+          "phase"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_to"
+        ],
+        "value": "color",
+        "resources": [
+          "phase"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_to"
+        ],
+        "value": "is--phase_from",
+        "resources": [
+          "phase"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_to"
+        ],
+        "value": "is--phase_to",
+        "resources": [
+          "phase"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_to"
+        ],
+        "value": "name",
+        "resources": [
+          "phase"
+        ]
+      },
+      {
+        "primaryKey": [
+          "phase_to"
+        ],
+        "value": "rank",
+        "resources": [
+          "phase"
+        ]
+      }
+    ],
+    "concepts": [
+      {
+        "primaryKey": [
+          "concept"
+        ],
+        "value": "concept_type",
+        "resources": [
+          "ddf--concepts"
+        ]
+      },
+      {
+        "primaryKey": [
+          "concept"
+        ],
+        "value": "domain",
+        "resources": [
+          "ddf--concepts"
+        ]
+      },
+      {
+        "primaryKey": [
+          "concept"
+        ],
+        "value": "name",
+        "resources": [
+          "ddf--concepts"
+        ]
+      }
+    ]
+  }
+}
