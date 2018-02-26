@@ -1,64 +1,54 @@
-let VIZABI_MODEL = {
+var VIZABI_MODEL = {
   state: {
     time: {
-      value: "2017",
+      dim: "year",
+      startOrigin: "2017",
+      value: "2017"
     },
     entities: {
-      dim: "governorate"
+      dim: "phase"
     },
     entities_from: {
-      dim: "governorate_from"
+      dim: "phase_from"
     },
     entities_to: {
-      dim: "governorate_to"
+      dim: "phase_to"
     },
-    entities_age: {
-      dim: "age_group",
-      show: {age_group: {$in: ["all_ages"]}}
-    },
-    entities_education: {
-      dim: "educational_level_10",
-      show: {educational_level_10: {$in: ["all_educational_levels_10"]}}
-    },
-    entities_gender: {
-      dim: "gender",
-      show: {gender: {$in: ["both_sexes"]}}
-    },
-    entities_reason: {
-      dim: "reason_for_migrating",
-      show: {reason_for_migrating: {$in: ["any_reason"]}}
-    },
-    marker: {
-      limit: 1000,
+    marker_links: {
       space: [
-        "entities_from",
         "entities_to",
-        "entities_age",
-        "entities_education",
-        "entities_gender",
-        "entities_reason",
+        "entities_from",
         "time"
       ],
-      hook_entities_from: {which: "name", use: "property", spaceRef: "entities_from"},
-      hook_entities_to: {which: "name", use: "property", spaceRef: "entities_to"},
-      hook_entities_age: {which: "name", use: "property", spaceRef: "entities_age"},
-      hook_entities_education: {which: "name", use: "property", spaceRef: "entities_education"},
-      hook_entities_gender: {which: "name", use: "property", spaceRef: "entities_gender"},
-      hook_entities_reason: {which: "name", use: "property", spaceRef: "entities_reason"},
-      
-      
       size: {
         use: "indicator",
-        which: "amount"
+        which: "amount__region4",
+        allow: {
+          "scales": ["linear"]
+        }
       }
     },
-    marker_nodes: {
+    marker: {
+      space: ["entities"],
+      label: {
+        use: "property",
+        which: "name",
+      },
       color: {
         use: "property",
         which: "color",
         scaleType: "ordinal"
+      },
+      hook_rank: {
+        use: "property",
+        which: "rank",
+        scaleType: "ordinal"
       }
-    }
+    },
   },
-  ui: {splash: false}
+  ui: {
+    chart: {
+      nodeSortingByHook: true //set to true and use "hook_rank" to sort the nodes, set to false or ommit for automatic sorting
+    }
+  }
 };

@@ -16,8 +16,8 @@ let VIZABI_MODEL = {
     },
     marker_links: {
       space: [
-        "entities_from",
         "entities_to",
+        "entities_from",
         "time"
       ],
       size: {
