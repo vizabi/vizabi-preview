@@ -2,7 +2,7 @@ var VIZABI_MODEL = {
   state: {
     time: {
       dim: "year",
-      startOrigin: "2017",
+      startOrigin: "1997",
       value: "2017"
     },
     entities: {
