@@ -3,13 +3,14 @@ var VIZABI_MODEL = {
     "time": {
       "startOrigin": "1993",
       "endOrigin": "2015",
-      "value": "2014",
+      "value": "2000",
       "dim": "year",
       "delay": 700
     },
     "entities": {
       "dim": "basomrade",
-      "show": {"size": "big"}
+      "filter": {"basomrade": {"size": "big"}},
+      "show": {}
     },
     "entities_colorlegend": {
       "dim": "municipality"
@@ -25,16 +26,16 @@ var VIZABI_MODEL = {
         "which": "name"
       },
       "axis_y": {
-        "which": "educational_level_higher_education_min_3_years_aged_25_64_female",
+        "which": "post_secondary_education_min_3_years_aged_25_64",
         "use": "indicator"
       },
       "axis_x": {
         "which": "mean_income_aged_gt_20",
         "use": "indicator",
-        "scaleType": "log"
+        "scaleType": "linear"
       },
       "size": {
-        "which": "population_20xx_12_31",
+        "which": "population_aged_gt_20",
         "use": "indicator",
         "scaleType": "linear",
         "extent": [0, 1],
