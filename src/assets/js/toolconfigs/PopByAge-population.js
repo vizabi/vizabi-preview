@@ -10,20 +10,16 @@ var VIZABI_MODEL = {
       },
       "entities": {
         "dim": "geo",
-        "show": {
-          "geo": {
-            "$in": ["world"]
-          }
-        },
         "filter": {
-          "geo": {
-              "$or": [
-              {"un_state": true},
-              {"is--global": true},
-              {"is--world_4region": true}
-            ]
-          }
-        }
+           "geo": {"$or": [
+             {"un_state": true},
+             {"is--global": true},
+             {"is--world_4region": true}
+           ]}
+        },
+        "show": { "geo": { "$in": ["world"] } },
+        "showFallback": { "geo": { "$in": ["world"] } },
+        showItemsMaxCount: 10
       },
       "entities_geodomain": {
         "dim": "geo",
