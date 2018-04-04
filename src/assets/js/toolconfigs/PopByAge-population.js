@@ -113,6 +113,11 @@ var VIZABI_MODEL = {
       }
     },
     "ui": {
-      "splash": true
+      "splash": true,
+      "dialogs": {
+        "dialog": {
+          "find": {"showTabs": {"geo": "open"}}
+        }
+      }
     }
   }
