@@ -19,6 +19,7 @@ var VIZABI_MODEL = {
             dim: "age_group"
         },
         marker: {
+          limit: 9999999999,
             space: [
                 "entities",
                 "entities_gender",

@@ -1,102 +1,47 @@
 var VIZABI_MODEL = {
-  "state": {
-    "time": {
-      "startOrigin": "1993",
-      "endOrigin": "2014",
-      "value": "2014",
-      "dim": "year"
-    },
-    "entities": {
-      "dim": "basomrade",
-      "show": {}
-    },
-    "entities_gender": {
-      "dim": "gender"      
-    },
-    "entities_colorlegend": { 
-    },
-    "marker": {
-      "space": ["entities", "entities_gender", "time"],
-      "label": {
-        "use": "property",
-        "which": "name"
-      },
-      "label_gender": {
-        "use": "property",
-        "which": "name"
-      },
-      "axis_y": {
-        "use": "indicator",
-        "which": "mean_income_aged_gt_20",
-        "scaleType": "log"
-      },
-      "axis_x": {
-        "use": "indicator",
-        "which": "year",
-        "scaleType": "time"
-      },
-      "color": {
-        "use": "property",
-        "which": "municipality",
-        "scaleType": "ordinal",
-        "allow": {
-          "scales": ["ordinal"]
+    state: {
+        time: {
+            dim: "year"
         },
-        "syncModels": ["marker_colorlegend"]
-      }
+        entities: {
+            dim: "governorate"
+        },
+        entities_gender: {
+            dim: "gender",
+            show: {}
+        },
+        entities_loctype: {
+            dim: "locality_type",
+            show: {}
+        },
+        entities_education_level: {
+            dim: "education"
+        },
+        entities_age_group: {
+            dim: "age_group",
+            show: {}
+        },
+        marker: {
+            space: [
+                "entities",
+                "entities_gender",
+                "entities_loctype",
+                "entities_education_level",
+                "entities_age_group",
+                "time"
+            ],
+            hook_entities_gender: { which: "name", use: "property", spaceRef: "entities_gender" },
+            hook_entities_loctype: { which: "name", use: "property", spaceRef: "entities_loctype" },
+            hook_entities_education_level: { which: "name", use: "property", spaceRef: "entities_education_level" },
+            hook_entities_age_group: { which: "name", use: "property", spaceRef: "entities_age_group" }
+        }
     },
-    "entities_allpossible": {
-      "dim": "basomrade",
-      "show": {}
+    "ui": {
+      "chart": {"curve": "curveLinear"},
+        "dialogs": { "dialog": { "find": { enablePicker: true } } }
     },
-    "entities_tags": {
-      "dim": "tag"
-    },
-    "marker_allpossible": {
-      "space": ["entities_allpossible"],
-      "label": {
-        "use": "property",
-        "which": "name"
-      }
-    },
-    "marker_colorlegend": {
-      "space": ["entities_colorlegend"],
-      "opacityRegular": 0.8,
-      "opacityHighlightDim": 0.3, 
-      "label": {
-        "use": "property",
-        "which": "name"
-      },
-      "hook_rank": {
-        "use": "property",
-        "which": "rank"
-      },
-      "hook_geoshape": {
-        "use": "property",
-        "which": "shape_lores_svg"
-      }
-    },
-    "marker_tags": {
-      "space": ["entities_tags"],
-      "label": {
-        "use": "property",
-        "which": "name"
-      },
-      "hook_parent": {
-        "use": "property",
-        "which": "parent"
-      }
+    data: {
+      reader: "ddf",
+      path: "data/private/preliminary"
     }
-  },
-  "data": {
-    reader: 'waffle',
-    path: 'https://waffle-server-dev.gapminderdev.org/api/ddf/ql',
-    dataset: 'open-numbers/ddf--sodertornsmodellen'
-  },
-  "ui": {
-    "datawarning": {
-      "doubtDomain": [1800, 1950, 2015],
-      "doubtRange": [1.0, 0.3, 0.2]
-    }
-  }
-}
+};
