@@ -6,7 +6,7 @@ if (command == "ncu" && process.env.npm_config_a) command = "ncu -a";
 if (command == "git commit" && process.env.npm_config_message) command = 'git commit -m "' + process.env.npm_config_message + '"';
 if (command == "git add" && process.env.npm_config_message) command = 'git add --all';
 
-const packages = require('./packages').concat(!command.startsWith('git') ? 'vizabi-preview' : []);
+const packages = require('./packages');
 
 const execAsync = (command) => shell.exec(command, { async: true, silent: true }, (_, stdout, stderr) => {
   console.log(
