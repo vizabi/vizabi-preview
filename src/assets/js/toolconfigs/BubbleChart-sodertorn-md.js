@@ -17,9 +17,6 @@ var VIZABI_MODEL = {
     "entities_colorlegend": {
       "dim": "municipality"
     },
-    "entities_tags": {
-      "dim": "tag"
-    },
     "marker": {
       "opacityRegular": 0.6,
       "space": ["entities", "entities_gender", "time"],
@@ -74,17 +71,7 @@ var VIZABI_MODEL = {
         "use": "property",
         "which": "shape_lores_svg"
       }
-    },
-    "marker_tags": {
-      "space": ["entities_tags"],
-      "label": {
-        "use": "property",
-        "which": "name"
-      },
-      "hook_parent": {
-        "use": "property",
-        "which": "parent"
-      }
+    }
     },
     "marker_allpossible": {
       "space": ["entities"],

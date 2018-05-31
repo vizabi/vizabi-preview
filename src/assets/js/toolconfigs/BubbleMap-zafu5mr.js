@@ -13,9 +13,6 @@ var VIZABI_MODEL = {
     "entities_colorlegend": { 
       "dim": "world_4region"
     },
-    "entities_tags": {
-      "dim": "tag"
-    },
     "marker": {
       "space": ["entities", "time"],
       "label": {
@@ -68,17 +65,6 @@ var VIZABI_MODEL = {
       "hook_geoshape": {
         "use": "property",
         "which": "shape_lores_svg"
-      }
-    },
-    "marker_tags": {
-      "space": ["entities_tags"],
-      "label": {
-        "use": "property",
-        "which": "name"
-      },
-      "hook_parent": {
-        "use": "property",
-        "which": "parent"
       }
     }
   },

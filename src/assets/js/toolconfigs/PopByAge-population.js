@@ -104,12 +104,6 @@ var VIZABI_MODEL = {
           "use": "property",
           "which": "shape_lores_svg"
         }
-      },
-      "entities_tags": { },
-      "marker_tags": {
-        "space": ["entities_tags"],
-        "label": {},
-        "hook_parent": {}
       }
     },
     "ui": {
