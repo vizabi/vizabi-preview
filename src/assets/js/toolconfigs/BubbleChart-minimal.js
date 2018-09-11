@@ -5,9 +5,14 @@ var VIZABI_MODEL = {
 //   }
 // },
   data: {
-    reader: 'csv', 
+    // reader: 'csv',
+    // reader: 'csv-new',
+    reader: 'excel', 
 //   reader: 'csv-time_in_columns', 
-    path: 'data/csv-broken/columns-messed-up.csv'
+//    path: 'data/csv-broken/columns-messed-up.csv'
+//path: 'data/csv/basic.csv'
+//path: 'data/csv/basic.csv'
+path: 'data/csv/basic-2003.xls'
   }
 };
 

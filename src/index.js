@@ -11,6 +11,8 @@ import 'font-awesome/fonts/fontawesome-webfont.woff2';
 
 import 'vizabi-ddfcsv-reader/dist/vizabi-ddfcsv-reader';
 import 'vizabi-ws-reader/dist/vizabi-ws-reader-web';
+import 'vizabi-csv-reader/dist/vizabi-csv-reader';
+import 'vizabi-excel-reader/dist/vizabi-excel-reader';
 import 'd3/build/d3';
 
 require('url-search-params-polyfill');
