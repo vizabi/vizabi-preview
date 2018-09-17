@@ -8,11 +8,13 @@ var VIZABI_MODEL = {
     // reader: 'csv',
     // reader: 'csv-new',
     reader: 'excel',
-//   reader: 'csv-time_in_columns',
-//    path: 'data/csv-broken/columns-messed-up.csv'
-//path: 'data/csv/basic.csv'
-//path: 'data/csv/basic.csv'
-path: 'data/xls/basic-2003.xls'
+    // reader: 'csv-time_in_columns',
+    // path: 'data/csv-broken/columns-messed-up.csv'
+    // path: 'data/csv/basic.csv'
+    // path: 'data/xls/basic-2003.xls'
+    // path: 'data/csv/timeright--education.csv',
+    path: 'data/xls/timeright--education.xlsx',
+    timeInColumns: true
   }
 };
 
