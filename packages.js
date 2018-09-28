@@ -1,8 +1,8 @@
 module.exports  = [
   'vizabi',
-  'vizabi-barrankchart',
+  // 'vizabi-barrankchart',
   'vizabi-bubblechart',
-  'vizabi-mountainchart',
+  /*'vizabi-mountainchart',
   'vizabi-linechart',
   'vizabi-cartogram',
   'vizabi-popbyage',
@@ -10,5 +10,5 @@ module.exports  = [
   'vizabi-bubblemap',
   'vizabi-barchart-ds',
   'vizabi-sankey',
-  'vizabi-spreadsheet',
+  'vizabi-spreadsheet',*/
 ];

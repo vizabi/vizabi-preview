@@ -145,6 +145,14 @@ script.
     var ddfReader = new DDFCsvReader.getDDFCsvReaderObject()
     Vizabi.Reader.extend("ddf", ddfReader);
 
+    //External CSV reader integration
+    Vizabi.Reader.extend("csv-new", CsvReader.csvReaderObject);
+
+    console.log(ExcelReader);
+
+    //Excel reader integration
+    Vizabi.Reader.extend("excel", ExcelReader.excelReaderObject);
+
     parseURL();
 
     VIZABI_MODEL = Vizabi.utils.deepExtend({}, {
