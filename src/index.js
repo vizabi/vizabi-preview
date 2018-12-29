@@ -25,3 +25,6 @@ requireChartConfigs.keys().forEach(requireChartConfigs);
 
 var requireJsAssets = require.context('./assets/js', true, /\.js$/);
 requireJsAssets.keys().forEach(requireJsAssets);
+
+//for ie11
+if (!window.Promise) window.Promise = require('promise');
