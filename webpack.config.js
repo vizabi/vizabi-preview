@@ -2,7 +2,7 @@ const path = require('path');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const customLoader = require('custom-loader');
 
 const __PROD__ = process.env.NODE_ENV === 'production';
@@ -24,7 +24,9 @@ const stats = {
   publicPath: false
 };
 
-const extractSCSS = new ExtractTextPlugin('assets/css/main.css');
+const extractSCSS = new MiniCssExtractPlugin({
+  filename: 'assets/css/main.css'
+});
 customLoader.loaders = {
   ['tool-config-loader'](source) {
     this.cacheable && this.cacheable();
@@ -35,6 +37,12 @@ customLoader.loaders = {
 };
 
 const preview = {
+  mode: __PROD__ ? 'production': 'development',
+
+  performance: {
+    hints: false
+  },
+
   devtool: 'source-map',
 
   entry: {
@@ -54,7 +62,7 @@ const preview = {
   },
 
   module: {
-    loaders: [
+    rules: [
 
       {
         test: /(d3|web|reader)\.js$/,
@@ -62,7 +70,7 @@ const preview = {
           path.resolve(__dirname, 'node_modules'),
         ],
         loader: 'file-loader',
-        query: {
+        options: {
           name: 'assets/vendor/js/[1]/[name].[ext]',
           regExp: new RegExp(`${sep}node_modules${sep}([^${sep}]+?)${sep}`),
         }
@@ -89,7 +97,7 @@ const preview = {
         include: [
           path.resolve(__dirname, 'src', 'tools')
         ],
-        loaders: [
+        use: [
           'file-loader?name=[name].html',
           'pug-html-loader?exports=false&pretty=true'
         ],
@@ -100,7 +108,8 @@ const preview = {
         include: [
           path.resolve(__dirname, 'src', 'assets', 'css'),
         ],
-        loader: extractSCSS.extract([
+        use: [
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -121,7 +130,7 @@ const preview = {
               sourceMap: true,
             },
           }
-        ]),
+        ]
       },
 
       {
@@ -130,7 +139,7 @@ const preview = {
           path.resolve(__dirname, 'node_modules')
         ],
         loader: 'file-loader',
-        query: {
+        options: {
           name: 'assets/vendor/fonts/[name].[ext]'
         }
       },
@@ -141,17 +150,18 @@ const preview = {
           path.resolve(__dirname, 'node_modules')
         ],
         loader: 'file-loader',
-        query: {
+        options: {
           name: 'assets/vendor/css/[name].[ext]'
         }
       },
 
       {
+        type: 'javascript/auto',
         test: /\.json$/,
         include: [
           path.resolve(__dirname, 'node_modules'),
         ],
-        loaders: [
+        use: [
           'file-loader?name=assets/js/toolconfigs/[name].js',
           'custom-loader?name=tool-config-loader',
         ],
