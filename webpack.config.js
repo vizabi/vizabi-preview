@@ -72,7 +72,7 @@ const preview = {
         loader: 'file-loader',
         options: {
           name: 'assets/vendor/js/[1]/[name].[ext]',
-          regExp: new RegExp(`${sep}node_modules${sep}([^${sep}]+?)${sep}`),
+          regExp: new RegExp(`${sep}([^${sep}]+?)${sep}(?:build|dist)${sep}`),
         }
       },
 
@@ -126,6 +126,7 @@ const preview = {
           {
             loader: 'sass-loader',
             options: {
+              implementation: require("sass"),
               quiet: true,
               sourceMap: true,
             },
