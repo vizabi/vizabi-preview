@@ -20,7 +20,7 @@
   "dependencies": {
     "d3": "^5.8.2",
     "font-awesome": "^4.7.0",
-    "vizabi-config-systema_globalis": "2.9.2",
+    "vizabi-config-systema_globalis": "2.9.3",
     "vizabi-csv-reader": "0.4.2",
     "vizabi-ddfcsv-reader": "3.0.11",
     "vizabi-excel-reader": "0.4.1",
