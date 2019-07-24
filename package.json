@@ -21,11 +21,11 @@
     "d3": "^5.8.2",
     "font-awesome": "^4.7.0",
     "vizabi-config-systema_globalis": "2.9.3",
-    "vizabi-csv-reader": "0.4.3",
+    "vizabi-csv-reader": "0.4.4",
     "vizabi-ddfcsv-reader": "3.0.13",
     "vizabi-excel-reader": "0.4.1",
     "vizabi-ws-reader": "2.5.0",
-    "vizabi-ddfservice-reader": "^0.6.0"
+    "vizabi-ddfservice-reader": "^0.7.0"
   },
   "devDependencies": {
     "puppeteer": "^1.11.0",
