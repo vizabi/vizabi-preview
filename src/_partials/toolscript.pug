@@ -137,10 +137,6 @@ script.
       langButton.value = evt.source._val;
     };
 
-    //WS reader integration
-    var wsReader = WsReader.WsReader.getReader();
-    Vizabi.Reader.extend("waffle", wsReader);
-
     //DDFCSV reader integration
     var ddfReader = new DDFCsvReader.getDDFCsvReaderObject()
     Vizabi.Reader.extend("ddf", ddfReader);

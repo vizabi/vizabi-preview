@@ -115,9 +115,7 @@ let VIZABI_MODEL = {
     "splash": true
   },
   "data": {
-    reader: 'waffle',
-    path: 'https://waffle-server-dev.gapminderdev.org/api/ddf/ql',
-    dataset: 'open-numbers/ddf--sodertornsmodellen',
-    assetsPath: 'https://import-waffle-server-dev.gapminderdev.org/api/ddf/assets/'
+    "reader": 'ddf',
+    "path": "https://raw.githubusercontent.com/open-numbers/ddf--sodertornsmodellen/master/"
   }
 };

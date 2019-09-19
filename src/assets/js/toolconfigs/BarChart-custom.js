@@ -64,9 +64,7 @@ var VIZABI_MODEL = {
     "splash": false
   },
   "data": {
-    "reader": "waffle",
-    //"reader": "ddf",
-    "path": "https://waffle-server-dev.gapminderdev.org/api/ddf/ql"
-    //"path": "data/systema_globalis"
+    "reader": "ddf",
+    "path": "data/systema_globalis"
   }
 };

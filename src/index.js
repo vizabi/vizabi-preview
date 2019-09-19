@@ -10,7 +10,6 @@ import 'font-awesome/fonts/fontawesome-webfont.woff';
 import 'font-awesome/fonts/fontawesome-webfont.woff2';
 
 import 'vizabi-ddfcsv-reader/dist/vizabi-ddfcsv-reader';
-import 'vizabi-ws-reader/dist/vizabi-ws-reader-web';
 import 'vizabi-csv-reader/dist/vizabi-csv-reader';
 import 'vizabi-excel-reader/dist/vizabi-excel-reader';
 import 'vizabi-ddfservice-reader/dist/vizabi-ddfservice-reader';

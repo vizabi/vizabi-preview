@@ -24,7 +24,6 @@
     "vizabi-csv-reader": "0.4.4",
     "vizabi-ddfcsv-reader": "3.0.13",
     "vizabi-excel-reader": "0.4.1",
-    "vizabi-ws-reader": "2.5.0",
     "vizabi-ddfservice-reader": "^0.7.0"
   },
   "devDependencies": {
