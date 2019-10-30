@@ -71,7 +71,6 @@ var VIZABI_MODEL = {
         "use": "property",
         "which": "shape_lores_svg"
       }
-    }
     },
     "marker_allpossible": {
       "space": ["entities"],

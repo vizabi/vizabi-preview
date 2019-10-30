@@ -15,17 +15,25 @@ import 'vizabi-excel-reader/dist/vizabi-excel-reader';
 import 'vizabi-ddfservice-reader/dist/vizabi-ddfservice-reader';
 import 'd3/dist/d3';
 
-require('url-search-params-polyfill');
-
+// require('url-search-params-polyfill');
+import 'url-search-params-polyfill';
+//import './tools/index.pug';
+//import './tools/barrankchart.static.pug';
 var requirePugTemplates = require.context('./tools', false, /\.pug$/);
 requirePugTemplates.keys().forEach(requirePugTemplates);
 
-var requireChartConfigs = require.context('vizabi-config-systema_globalis/dist', false, /\.json$/);
+var requireChartConfigs = require.context('../node_modules/vizabi-config-systema_globalis/dist', false, /\.json$/);
 requireChartConfigs.keys().forEach(requireChartConfigs);
 
-var requireJsAssets = require.context('./assets/js', true, /\.js$/);
-requireJsAssets.keys().forEach(requireJsAssets);
+//var requireJsAssets = require.context('./assets/js', true, /\.js$/);
+//requireJsAssets.keys().forEach(requireJsAssets);
 
-window.URLON = require("urlon");
+//window.URLON = require("urlon");
+import 'urlon';
+
 //for ie11
-if (!window.Promise) window.Promise = require('promise');
+import promise from 'promise';
+if (!window.Promise) {
+    //window.Promise = require('promise');
+    window.Promise = promise;
+}
