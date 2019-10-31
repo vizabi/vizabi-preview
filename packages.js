@@ -1,4 +1,5 @@
 module.exports  = [
+  "vizabi-reactive"
   // 'vizabi',
   // 'vizabi-barrankchart',
   // 'vizabi-bubblechart',

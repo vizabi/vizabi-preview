@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
-import * as meta from "./package.json";
-
+const path = require("path");
 
 //import babel from "rollup-plugin-babel";
 import {eslint} from "rollup-plugin-eslint";
@@ -17,7 +16,9 @@ import trash from "rollup-plugin-delete";
 import copy from "rollup-plugin-copy";
 import pug from 'rollup-plugin-pug';
 import url from 'rollup-plugin-url';
-import requireContext from 'rollup-plugin-require-context';
+import {plugin as globImport} from 'rollup-plugin-glob-import';
+
+import * as meta from "./package.json";
 
 const pugEmitAssets = (plugin) => {
   const pluginTransform = plugin.transform;
@@ -70,32 +71,40 @@ const __PROD__ = process.env.NODE_ENV === 'production';
 const preview = {
   input: {"preview":"src/index.js"},
   output: {
+    name: "preview",
     dir: "build",
     format: "umd",
     banner: copyright,
-    sourcemap: "inline"
+    sourcemap: true
   },
   plugins: [
     trash({
     targets: ['build/*']
     }),
     copy({
-      targets: [{
-        src: ["src/assets/js","src/data"],
-        dest: "build"
-      }]
+      targets: [
+        { src: "src/assets/js", dest: "build/assets" },
+        { src: "src/data", dest: "build" },
+      ],
+      verbose: true
     }),
     resolve(),
+    commonjs(),
+    globImport({
+      format: 'import'
+    }),
     (process.env.NODE_ENV === "production" && eslint()),
     // babel({
     // exclude: "node_modules/**"
     // }),
-    commonjs(),
-    requireContext(),
     pugEmitAssets(pug({
       doctype: 'js',
       pretty: true,
       staticPattern: /\S/
+    })),
+    jsonEmitAssets(json({
+      namedExports:false,
+      indent: '  '
     })),
     url({
       limit: 0,
@@ -108,19 +117,15 @@ const preview = {
     }),
     url({
       limit: 0,
-      fileName: "vendor/js/[name][extname]",
+      fileName: "vendor/js/[name]/[name][extname]",
       include: [
-        /(d3|web|reader)\.js$/,
+        /(d3|mobx\.umd|web|reader)\.js$/,
       ],
       destDir: "build/assets"
     }),
     sass({
-    output: "build/assets/css/main.css",
+      output: "build/assets/css/main.css",
     }),
-    jsonEmitAssets(json({
-      namedExports:false,
-      indent: '  '
-    })),
     replace({
       ENV: JSON.stringify(process.env.NODE_ENV || "development")
     }),
@@ -128,7 +133,7 @@ const preview = {
     (process.env.NODE_ENV === "devserver" && serve("build")),
     (process.env.NODE_ENV === "devserver" && livereload("build")),
     visualizer({
-    filename: "./build/stats.html"
+      filename: "./build/stats.html"
     }),
   ]
 
@@ -137,5 +142,4 @@ const preview = {
 const getRollupConfig = (pkg) => require(`${pkg}/rollup.external`)(path.resolve(__dirname, 'build', pkg));
 const dependencies = !__PROD__ ? require('./packages').map(getRollupConfig) : [];
 
-console.log(require('./packages'));
-module.exports = [preview, ...dependencies];
+export default [preview, ...(dependencies.flat())];

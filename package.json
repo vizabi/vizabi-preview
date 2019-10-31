@@ -20,6 +20,7 @@
   "dependencies": {
     "d3": "^5.12.0",
     "font-awesome": "^4.7.0",
+    "mobx": "^5.14.2",
     "vizabi-config-systema_globalis": "2.9.3",
     "vizabi-csv-reader": "0.4.4",
     "vizabi-ddfcsv-reader": "3.0.13",
@@ -64,6 +65,8 @@
     "rollup-plugin-pug": "1.1.1",
     "rollup-plugin-url": "^3.0.0",
     "rollup-plugin-require-context": "^1.0.0",
-    "rollup-watch": "^4.3.1"
+    "rollup-plugin-glob-import": "0.4.4",
+    "rollup-watch": "^4.3.1",
+    "vizabi-reactive": "^1.0.1"
   }
 }

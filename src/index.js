@@ -14,16 +14,18 @@ import 'vizabi-csv-reader/dist/vizabi-csv-reader';
 import 'vizabi-excel-reader/dist/vizabi-excel-reader';
 import 'vizabi-ddfservice-reader/dist/vizabi-ddfservice-reader';
 import 'd3/dist/d3';
+import 'mobx/lib/mobx.umd';
 
 // require('url-search-params-polyfill');
 import 'url-search-params-polyfill';
-//import './tools/index.pug';
-//import './tools/barrankchart.static.pug';
-var requirePugTemplates = require.context('./tools', false, /\.pug$/);
-requirePugTemplates.keys().forEach(requirePugTemplates);
 
-var requireChartConfigs = require.context('../node_modules/vizabi-config-systema_globalis/dist', false, /\.json$/);
-requireChartConfigs.keys().forEach(requireChartConfigs);
+import './tools/*.pug';
+//var requirePugTemplates = require.context('./tools', false, /\.pug$/);
+//requirePugTemplates.keys().forEach(requirePugTemplates);
+
+import '../node_modules/vizabi-config-systema_globalis/dist/*.json';
+//var requireChartConfigs = require.context('../node_modules/vizabi-config-systema_globalis/dist', false, /\.json$/);
+//requireChartConfigs.keys().forEach(requireChartConfigs);
 
 //var requireJsAssets = require.context('./assets/js', true, /\.js$/);
 //requireJsAssets.keys().forEach(requireJsAssets);
