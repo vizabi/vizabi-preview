@@ -45,6 +45,17 @@ script.
       //'vizabi.css'
     ]
   ).then(function() {
+    return load(
+      document.getElementById('vizabi-assets'),
+      isLocalhost ? '' : vizabiBranch,
+      'vizabi-shared-components',
+      [
+        'VizabiSharedComponents' + (isLocalhost ? '' : '.min') + '.js',
+        'VizabiSharedComponents.css'
+        //'vizabi.css'
+      ]
+    );
+  }).then(function() {
     var tool = window.location.pathname.split('/').slice(-1)[0].split('.')[0];
     return load(
       document.getElementById('tool-assets'),
@@ -139,32 +150,128 @@ script.
 
     //DDFCSV reader integration
     var ddfReader = new DDFCsvReader.getDDFCsvReaderObject()
-    Vizabi.Reader.extend("ddf", ddfReader);
+    //Vizabi.Reader.extend("ddf", ddfReader);
+    Vizabi.stores.dataSources.createAndAddType("ddfcsv", ddfReader);
 
     //External CSV reader integration
-    Vizabi.Reader.extend("csv", CsvReader.csvReaderObject);
+    //Vizabi.Reader.extend("csv", CsvReader.csvReaderObject);
+    Vizabi.stores.dataSources.createAndAddType("csv", CsvReader.csvReaderObject);
 
     //Excel reader integration
-    Vizabi.Reader.extend("excel", ExcelReader.excelReaderObject);
+    //Vizabi.Reader.extend("excel", ExcelReader.excelReaderObject);
+    Vizabi.stores.dataSources.createAndAddType("excel", ExcelReader.excelReaderObject);
 
     // BW reader integration
     var bwReader = DDFServiceReader.getReader();
-    Vizabi.Reader.extend("ddfbw", bwReader);
+    //Vizabi.Reader.extend("ddfbw", bwReader);
+    Vizabi.stores.dataSources.createAndAddType("ddfbw", bwReader);
 
     parseURL();
 
-    VIZABI_MODEL = Vizabi.utils.deepExtend({}, {
-      locale: {
-        filePath: '/vizabi' + (!isLocalhost ? ('/' + vizabiBranch) : '') + '/assets/translation/'
-      },
-      data: #{chart_data}
-    }, VIZABI_MODEL);
+    //- VIZABI_MODEL = Vizabi.utils.deepExtend({}, {
+    //-   locale: {
+    //-     filePath: '/vizabi' + (!isLocalhost ? ('/' + vizabiBranch) : '') + '/assets/translation/'
+    //-   },
+    //-   data: #{chart_data}
+    //- }, VIZABI_MODEL);
 
-    VIZABI_PAGE_MODEL = Vizabi.utils.deepExtend({}, VIZABI_MODEL);
-    delete VIZABI_PAGE_MODEL.bind;
+    //- VIZABI_PAGE_MODEL = Vizabi.utils.deepExtend({}, VIZABI_MODEL);
+    //- delete VIZABI_PAGE_MODEL.bind;
 
     timeLogger.add("TOTAL")
     timeLogger.add("SPLASH");
-    VIZ = Vizabi("#{tool}", placeholder, Vizabi.utils.deepExtend({}, VIZABI_MODEL, URLI.model, true));
+    //VIZ = Vizabi("#{tool}", placeholder, Vizabi.utils.deepExtend({}, VIZABI_MODEL, URLI.model, true));
     
+    var data = {
+      modelType: "ddfcsv",
+      path: "./data/ddf--jheeffer--mdtest/"
+    };
+
+    var initialMarkerConfig = {
+      data: {
+        locale: "en",
+        source: data,
+        space: {
+          autoconfig: {
+            concept: {
+              $nin: ["age"]
+            }
+          }
+        }
+      },
+      encoding: {
+        "selected": {
+          modelType: "selection"
+        },
+        "highlighted": {
+          modelType: "selection"
+        },
+        "x": {
+          data: {
+            concept: "population_total"
+          }
+        },
+        "y": {
+          data: {
+            concept: "country"
+          }
+        },
+        "color": {
+          data: {
+            space: ["country"],
+            concept: "world_4region"
+          },
+          scale: {
+            type: "ordinal"
+          }
+        },
+        "label": {
+          data: {
+            space: ["country"],
+            concept: "name"
+          }
+        },
+        frame: {
+          modelType: "frame",
+          speed: 200,
+          data: {
+            concept: {
+              autoconfig: {
+                concept_type: "time"
+              }
+            }
+          }
+        }
+      }
+    };
+
+    var marker = Vizabi.marker(initialMarkerConfig);
+
+    var _ui = {
+      //ui
+        "time-slider": {
+          "show_value": true
+        },
+        "buttons": {
+          "buttons": ["colors", "find", "moreoptions", "presentation", "sidebarcollapse", "fullscreen"],
+        },
+        "dialogs": {
+          "popup": ["timedisplay", "colors", "find", "moreoptions"],
+          "sidebar": ["timedisplay", "colors", "find"],
+          "moreoptions": ["opacity", "speed", "colors", "presentation", "about"]
+        },
+      
+      }
+    
+    var ui = Vizabi.mobx.observable(_ui);
+
+    Vizabi.mobx.autorun(() => {
+      console.log(JSON.stringify(ui), JSON.stringify(_ui));
+    })
+    
+    new BarrankChart({
+      placeholder: placeholder,
+      model: marker,
+      ui: ui
+    });
   });

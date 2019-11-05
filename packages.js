@@ -1,7 +1,8 @@
 module.exports  = [
-  "vizabi-reactive"
+  "vizabi-reactive",
+  "vizabi-shared-components",
+  'vizabi-barrankchart',
   // 'vizabi',
-  // 'vizabi-barrankchart',
   // 'vizabi-bubblechart',
   // 'vizabi-mountainchart',
   // 'vizabi-linechart',
