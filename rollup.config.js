@@ -78,9 +78,9 @@ const preview = {
     sourcemap: true
   },
   plugins: [
-    trash({
-    targets: ['build/*']
-    }),
+    (process.env.NODE_ENV === "production" && trash({
+      targets: ['build/*', '!build/vizabi*/**']
+    })),
     copy({
       targets: [
         { src: "src/assets/js", dest: "build/assets" },

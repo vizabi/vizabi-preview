@@ -182,94 +182,15 @@ script.
     timeLogger.add("SPLASH");
     //VIZ = Vizabi("#{tool}", placeholder, Vizabi.utils.deepExtend({}, VIZABI_MODEL, URLI.model, true));
     
-    var data = {
-      modelType: "ddfcsv",
-      path: "./data/ddf--jheeffer--mdtest/"
-    };
-
-    var initialMarkerConfig = {
-      data: {
-        locale: "en",
-        source: data,
-        space: {
-          autoconfig: {
-            concept: {
-              $nin: ["age"]
-            }
-          }
-        }
-      },
-      encoding: {
-        "selected": {
-          modelType: "selection"
-        },
-        "highlighted": {
-          modelType: "selection"
-        },
-        "x": {
-          data: {
-            concept: "population_total"
-          }
-        },
-        "y": {
-          data: {
-            concept: "country"
-          }
-        },
-        "color": {
-          data: {
-            space: ["country"],
-            concept: "world_4region"
-          },
-          scale: {
-            type: "ordinal"
-          }
-        },
-        "label": {
-          data: {
-            space: ["country"],
-            concept: "name"
-          }
-        },
-        frame: {
-          modelType: "frame",
-          speed: 200,
-          data: {
-            concept: {
-              autoconfig: {
-                concept_type: "time"
-              }
-            }
-          }
-        }
-      }
-    };
-
-    var marker = Vizabi.marker(initialMarkerConfig);
-
-    var _ui = {
-      //ui
-        "time-slider": {
-          "show_value": true
-        },
-        "buttons": {
-          "buttons": ["colors", "find", "moreoptions", "presentation", "sidebarcollapse", "fullscreen"],
-        },
-        "dialogs": {
-          "popup": ["timedisplay", "colors", "find", "moreoptions"],
-          "sidebar": ["timedisplay", "colors", "find"],
-          "moreoptions": ["opacity", "speed", "colors", "presentation", "about"]
-        },
-      
-      }
+    var marker = Vizabi.marker(VIZABI_MODEL.model);
     
-    var ui = Vizabi.mobx.observable(_ui);
+    var ui = Vizabi.mobx.observable(VIZABI_MODEL.ui);
 
-    Vizabi.mobx.autorun(() => {
-      console.log(JSON.stringify(ui), JSON.stringify(_ui));
-    })
+    //- Vizabi.mobx.autorun(() => {
+    //-   console.log(JSON.stringify(ui), JSON.stringify(_ui));
+    //- })
     
-    new BarrankChart({
+    new #{tool}({
       placeholder: placeholder,
       model: marker,
       ui: ui

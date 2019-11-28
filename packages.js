@@ -5,7 +5,7 @@ module.exports  = [
   // 'vizabi',
   // 'vizabi-bubblechart',
   // 'vizabi-mountainchart',
-  // 'vizabi-linechart',
+  'vizabi-linechart',
   // 'vizabi-cartogram',
   // 'vizabi-popbyage',
   // 'vizabi-extapimap',
