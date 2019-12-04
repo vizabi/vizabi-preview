@@ -182,7 +182,9 @@ script.
     timeLogger.add("SPLASH");
     //VIZ = Vizabi("#{tool}", placeholder, Vizabi.utils.deepExtend({}, VIZABI_MODEL, URLI.model, true));
     
-    var marker = Vizabi.marker(VIZABI_MODEL.model);
+    var model = VIZABI_MODEL.model.markers? 
+      Vizabi(VIZABI_MODEL.model) :
+      Vizabi.marker(VIZABI_MODEL.model);
     
     var ui = Vizabi.mobx.observable(VIZABI_MODEL.ui);
 
@@ -192,7 +194,7 @@ script.
     
     new #{tool}({
       placeholder: placeholder,
-      model: marker,
+      model: model,
       ui: ui
     });
   });

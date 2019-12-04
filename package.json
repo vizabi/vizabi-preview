@@ -24,8 +24,8 @@
     "vizabi-config-systema_globalis": "2.9.3",
     "vizabi-csv-reader": "0.4.4",
     "vizabi-ddfcsv-reader": "3.0.13",
-    "vizabi-excel-reader": "0.4.1",
-    "vizabi-ddfservice-reader": "^0.7.0"
+    "vizabi-ddfservice-reader": "^2.0.1",
+    "vizabi-excel-reader": "0.4.1"
   },
   "devDependencies": {
     "puppeteer": "^2.0.0",
