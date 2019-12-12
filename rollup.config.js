@@ -93,7 +93,7 @@ const preview = {
     globImport({
       format: 'import'
     }),
-    (process.env.NODE_ENV === "production" && eslint()),
+    //(process.env.NODE_ENV === "production" && eslint()),
     // babel({
     // exclude: "node_modules/**"
     // }),

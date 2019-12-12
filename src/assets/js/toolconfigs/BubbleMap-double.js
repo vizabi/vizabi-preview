@@ -1,8 +1,11 @@
 var __data = {
   modelType: "ddfbw",
   service: 'https://big-waffle.gapminder.org', 
-  dataset: 'migrantsTEST',
-  name: "migrantsTEST"
+  dataset: 'unhcr',
+  name: "unhcr"
+
+  //modelType: "ddfcsv",
+  //path: "./data/ddf--unhcr--population_statistics"
 };
 
 var VIZABI_MODEL = {
@@ -23,7 +26,7 @@ var VIZABI_MODEL = {
             },
             "size": {
             data: {
-                concept: "immigrant_stock"
+                concept: "population_arrived"
             }
             },
             "lat": {
@@ -78,7 +81,7 @@ var VIZABI_MODEL = {
             },
             "size": {
             data: {
-                concept: "emigrant_stock"
+                concept: "population_left"
             }
             },
             "lat": {

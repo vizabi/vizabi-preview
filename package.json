@@ -6,7 +6,7 @@
   "scripts": {
     "link": "npm run all npm link",
     "start": "NODE_ENV=devserver rollup -c --watch",
-    "build": "cross-env NODE_ENV=production webpack --progress",
+    "build": "cross-env NODE_ENV=production rollup -c",
     "all": "node all.js",
     "testcsvreader": "node ./tests/csvreader.js"
   },
