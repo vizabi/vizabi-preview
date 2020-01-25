@@ -29,7 +29,7 @@ var VIZABI_MODEL = {
           concept: "population_total"
         },
         scale: {
-          domain: [0,100000000]
+          type: "log"
         }
       },
       "x": {

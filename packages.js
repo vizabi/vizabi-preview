@@ -3,7 +3,7 @@ module.exports  = [
   "vizabi-shared-components",
   'vizabi-barrankchart',
   // 'vizabi',
-  // 'vizabi-bubblechart',
+  'vizabi-bubblechart',
   // 'vizabi-mountainchart',
   'vizabi-linechart',
   // 'vizabi-cartogram',
