@@ -19,6 +19,7 @@ var VIZABI_MODEL = {
             }
           }
         },
+        requiredEncodings: ["a", "b", "c", "d", "size"],
         encoding: {
           "selected": {
             modelType: "selection",
@@ -43,7 +44,7 @@ var VIZABI_MODEL = {
               type: "log"
             }
           },
-          "y": {
+          "a": {
             data: {
               concept: "life_expectancy",
             },
@@ -51,12 +52,28 @@ var VIZABI_MODEL = {
               //domain: [20, 40]
             }
           },
-          "x": {
+          "b": {
             data: {
               concept: "income_per_person_gdppercapita_ppp_inflation_adjusted"
             },
             scale: {
               type: "log"
+            }
+          },
+          "c": {
+            data: {
+              concept: "population_total"
+            },
+            scale: {
+              type: "log"
+            }
+          },
+          "d": {
+            data: {
+              concept: "u5mr"
+            },
+            scale: {
+              //type: "log"
             }
           },
           "color": {
@@ -90,6 +107,11 @@ var VIZABI_MODEL = {
             modelType: "trail",
             groupDim: "time"
           },
+          "repeat": {
+            modelType: "repeat",
+            row: ["a", "c", "d"],
+            column: ["d", "c", "a"]
+          }
         }
       }
     }
