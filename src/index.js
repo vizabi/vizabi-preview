@@ -14,18 +14,28 @@ import 'vizabi-csv-reader/dist/vizabi-csv-reader';
 import 'vizabi-excel-reader/dist/vizabi-excel-reader';
 import 'vizabi-ddfservice-reader/dist/vizabi-ddfservice-reader';
 import 'd3/dist/d3';
+import 'mobx/lib/mobx.umd';
 
-require('url-search-params-polyfill');
+// require('url-search-params-polyfill');
+import 'url-search-params-polyfill';
 
-var requirePugTemplates = require.context('./tools', false, /\.pug$/);
-requirePugTemplates.keys().forEach(requirePugTemplates);
+import './tools/*.pug';
+//var requirePugTemplates = require.context('./tools', false, /\.pug$/);
+//requirePugTemplates.keys().forEach(requirePugTemplates);
 
-var requireChartConfigs = require.context('vizabi-config-systema_globalis/dist', false, /\.json$/);
-requireChartConfigs.keys().forEach(requireChartConfigs);
+import '../node_modules/vizabi-config-systema_globalis/dist/*.json';
+//var requireChartConfigs = require.context('../node_modules/vizabi-config-systema_globalis/dist', false, /\.json$/);
+//requireChartConfigs.keys().forEach(requireChartConfigs);
 
-var requireJsAssets = require.context('./assets/js', true, /\.js$/);
-requireJsAssets.keys().forEach(requireJsAssets);
+//var requireJsAssets = require.context('./assets/js', true, /\.js$/);
+//requireJsAssets.keys().forEach(requireJsAssets);
 
-window.URLON = require("urlon");
+import urlon from 'urlon';
+window.URLON = urlon;
+
 //for ie11
-if (!window.Promise) window.Promise = require('promise');
+import promise from 'promise';
+if (!window.Promise) {
+    //window.Promise = require('promise');
+    window.Promise = promise;
+}

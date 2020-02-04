@@ -1,5 +1,9 @@
 # Setting up preview page
 
+## Requirements
+
+Node v11+
+
 Clone this repo and [vizabi/vizabi](https://github.com/vizabi/vizabi), so that they end up in the adjacent folders.
 Go to the `vizabi` folder. Run npm install
 Go to the `vizabi-preview` folder. Run npm install, npm link ../vizabi, npm start
