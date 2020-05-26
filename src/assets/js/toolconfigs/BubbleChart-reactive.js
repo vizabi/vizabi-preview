@@ -6,6 +6,30 @@ var __data = {
 var VIZABI_MODEL = {
   model: {
     markers: {
+      "legend": {
+        data: {
+          ref: {
+            transform: "entityConceptSkipFilter",
+            model: "markers.bubble.encoding.color"
+          }
+        },
+        encoding: {
+          color: {
+            data: { 
+              concept: { ref: "markers.bubble.encoding.color.data.concept" },
+              constant: { ref: "markers.bubble.encoding.color.data.constant" }
+            },
+            scale: {
+              modelType: "color",
+              palette: { ref: "markers.bubble.encoding.color.scale.palette" }
+            }
+            //scale: { ref: "markers.bubble.encoding.color.scale" }
+          },
+          name: { data: { concept: "name" } },
+          rank: { data: { concept: "rank" } },
+          map: { data: { concept: "shape_lores_svg" } }
+        }
+      },
       bubble: {
         modelType: "bubble",
         data: {
@@ -36,7 +60,6 @@ var VIZABI_MODEL = {
             }
           },
           "size": {
-            modelType: "size",
             data: {
               concept: "population_total"
             },
@@ -82,6 +105,7 @@ var VIZABI_MODEL = {
               concept: "world_4region"
             },
             scale: {
+              modelType: "color",
               type: "ordinal"
             }
           },
@@ -90,6 +114,14 @@ var VIZABI_MODEL = {
               //space: ["country"],
               modelType: "entityPropertyDataConfig",
               concept: "name"
+            }
+          },
+          "size_label": {
+            data: {
+              constant: "_default"
+            },
+            scale: {
+              modelType: "size"
             }
           },
           frame: {
@@ -109,8 +141,8 @@ var VIZABI_MODEL = {
           },
           "repeat": {
             modelType: "repeat",
-            row: ["a", "c", "d"],
-            column: ["d", "c", "a"]
+            row: ["a", "b"],
+            column: ["d"]//, "c"]
           }
         }
       }
@@ -122,10 +154,27 @@ var VIZABI_MODEL = {
       "buttons": ["colors", "find", "trails", "moreoptions", "presentation", "sidebarcollapse", "fullscreen"]
     },
     "dialogs": {
-      "popup": ["timedisplay", "colors", "find", "moreoptions"],
-      "sidebar": ["timedisplay", "colors", "find", "size"],
-      "moreoptions": ["opacity", "speed", "colors", "presentation", "about"]
+      "dialogs": {
+        "popup": ["colors", "find", "moreoptions"],
+        "sidebar": ["colors", "find", "size", "zoom"],
+        "moreoptions": [
+          "opacity", 
+          "speed",
+          //"axes",
+          "size", 
+          "colors",
+          "label",
+          "zoom",
+          "technical",
+          "presentation",
+          "about"
+        ]
+      }
     },
-    "chart": {}
+    "chart": {
+      labels: {
+        removeLabelBox: true
+      }
+    }
   }
 }
