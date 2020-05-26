@@ -9,8 +9,7 @@ module.exports  = [
   // 'vizabi-cartogram',
   // 'vizabi-popbyage',
   // 'vizabi-extapimap',
-  'vizabi-bubblemap',
-  'vizabi-ignoreports'
+  'vizabi-bubblemap'
   // 'vizabi-barchart-ds',
   // 'vizabi-sankey',
   // 'vizabi-spreadsheet',
