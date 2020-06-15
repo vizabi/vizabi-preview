@@ -9,8 +9,11 @@ function updateURL(force) {
 
     var lang, model;
     if(typeof VIZ !== 'undefined') {
-      minModel = VIZ.getPersistentMinimalModel(VIZABI_PAGE_MODEL);
-      model = VIZ.getModel();
+      minUI = VizabiSharedComponents.LegacyUtils.diffObject(VIZABI_UI, 
+        VizabiSharedComponents.Utils.getDefaultStateTree(VIZABI_MODEL.ui, VIZ));
+      VizabiSharedComponents.Utils.clearEmpties(minUI);
+      minModel = VizabiSharedComponents.LegacyUtils.diffObject(VIZABI_MDL, VIZABI_MODEL.model);
+      VizabiSharedComponents.Utils.clearEmpties(minModel);
     }
 
     if(model) {
@@ -41,7 +44,9 @@ function updateURL(force) {
       el.setAttribute("href", href);
     });
 
-    if(minModel && Object.keys(minModel).length > 0) {
+    if((minUI && Object.keys(minUI).length > 0) ||
+      (minModel && Object.keys(minModel).length > 0)) {
+      url.ui = minUI;
       url.model = minModel;
       url_string = URLON.stringify(url).replace(/=#/g, "=%23");
     }
@@ -69,6 +74,7 @@ function parseURL() {
     parsedUrl = URLON.parse(hash.replace(/=%2523/g, "=%23").replace(/=%23/g, "=#"));
 
     URLI.model = parsedUrl.model || {};
+    URLI.ui = parsedUrl.ui || {};
 
     if(parsedUrl.width && parsedUrl.height && placeholder && setDivSize) {
       setDivSize(placeholder, container, parsedUrl.width, parsedUrl.height);
