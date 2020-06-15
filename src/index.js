@@ -30,8 +30,8 @@ import '../node_modules/vizabi-config-systema_globalis/dist/*.json';
 //var requireJsAssets = require.context('./assets/js', true, /\.js$/);
 //requireJsAssets.keys().forEach(requireJsAssets);
 
-//window.URLON = require("urlon");
-import 'urlon';
+import urlon from 'urlon';
+window.URLON = urlon;
 
 //for ie11
 import promise from 'promise';
