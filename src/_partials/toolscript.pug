@@ -182,19 +182,26 @@ script.
     timeLogger.add("SPLASH");
     //VIZ = Vizabi("#{tool}", placeholder, Vizabi.utils.deepExtend({}, VIZABI_MODEL, URLI.model, true));
     
-    var model = VIZABI_MODEL.model.markers? 
-      Vizabi(VIZABI_MODEL.model) :
-      Vizabi.marker(VIZABI_MODEL.model);
-    
     var ui = Vizabi.mobx.observable(VIZABI_MODEL.ui);
+    VizabiSharedComponents.LegacyUtils.deepExtend(ui, URLI.ui);
+    VIZABI_UI = ui;
 
-    //- Vizabi.mobx.autorun(() => {
-    //-   console.log(JSON.stringify(ui), JSON.stringify(_ui));
-    //- })
-    
-    viz = new #{tool}({
+    var modelConfig = Vizabi.mobx.observable(VIZABI_MODEL.model);
+    VizabiSharedComponents.LegacyUtils.deepExtend(modelConfig, URLI.model);
+    VIZABI_MDL = modelConfig;
+
+    var model = VIZABI_MODEL.model.markers? 
+      Vizabi(modelConfig) :
+      Vizabi.marker(modelConfig);
+        
+    VIZ = new #{tool}({
       placeholder: placeholder,
       model: model,
       ui: ui
     });
+
+    Vizabi.mobx.autorun(() => {
+      updateURL(true);
+    })
+
   });
